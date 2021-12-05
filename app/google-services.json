@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702055484755",
+    "project_id": "sharelist-70c10",
+    "storage_bucket": "sharelist-70c10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702055484755:android:91bccb4bec672e37e365a6",
+        "android_client_info": {
+          "package_name": "com.iasoftwares.sharelist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702055484755-gbvbd3gjelj0hilp3tvljbi98qb7onc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZeb5DVK9xETRzU7PKgZ08HdoXxxaoYyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702055484755-gbvbd3gjelj0hilp3tvljbi98qb7onc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
