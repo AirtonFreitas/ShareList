@@ -8,16 +8,18 @@
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     android:fillViewport="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".loginActivity">
+        tools:context=".NewAccountActivity">
+
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Novo Cadastro"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,25 +28,26 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/edtLoginSenha"
+            android:id="@+id/editTextTextPersonName"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:ems="10"
-            android:hint="senha"
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/btnLoginEntrar"
+            android:hint="nome completo"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/edtLoginEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtLoginEmail"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,30 +57,76 @@
         <EditText
             android:id="@+id/edtLoginEmail"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:ems="10"
             android:hint="e-mail"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/edtLoginSenha"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <EditText
+            android:id="@+id/edtLoginSenha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:ems="10"
+            android:hint="senha"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/edtLoginSenhaB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+
+        <EditText
+            android:id="@+id/edtLoginSenhaB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:ems="10"
+            android:hint="senha"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/btnLoginEntrar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha" />
 
         <Button
             android:id="@+id/btnLoginEntrar"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginEnd="60dp"
             android:text="Entrar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenhaB" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:ems="10"
+            android:hint="telefone"
+            android:inputType="phone"
+            app:layout_constraintBottom_toTopOf="@+id/edtLoginSenha"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
