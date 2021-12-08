@@ -40,7 +40,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:autofillHints="" />
 
 
         <ImageView
@@ -67,7 +68,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/edtLoginSenha"
@@ -82,7 +84,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
+            android:autofillHints="" />
 
 
         <EditText
@@ -98,7 +101,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/btnLoginEntrar"
@@ -125,7 +129,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail"
+            android:autofillHints="" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
