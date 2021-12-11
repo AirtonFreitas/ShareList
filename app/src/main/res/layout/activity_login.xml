@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp"
-    android:fillViewport="true">
+    tools:layout_editor_absoluteY="1dp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,61 +23,94 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <EditText
-            android:id="@+id/edtLoginSenha"
+            android:id="@+id/edtLoginSenhaID"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/ic_baseline_lock_gray"
             android:ems="10"
             android:hint="senha"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/btnLoginEntrar"
+            android:paddingStart="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnLoginEntrarID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginEmailID" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintBottom_toTopOf="@+id/edtLoginEmail"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/edtLoginEmailID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
-            android:id="@+id/edtLoginEmail"
+            android:id="@+id/edtLoginEmailID"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="30dp"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/ic_baseline_email_gray"
             android:ems="10"
             android:hint="e-mail"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/edtLoginSenha"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/edtLoginSenhaID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
-            android:id="@+id/btnLoginEntrar"
+            android:id="@+id/btnLoginEntrarID"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/alt_btn"
             android:layout_marginStart="60dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_btn_primary"
             android:text="Entrar"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha" />
+            app:layout_constraintTop_toBottomOf="@+id/edtLoginSenhaID" />
+
+        <Button
+            android:id="@+id/btntLoginCadastroID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/rounded_btn_secondary"
+            android:text="Cadastro"
+            android:textColor="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginEntrarID" />
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

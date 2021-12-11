@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_alternate_email_gray.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_primary.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_second.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_secondary.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_edittext.xml" value="0.21875" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_main.xml" value="0.15925925925925927" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_new_account.xml" value="0.22" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_new_account.xml" value="0.25" />
       </map>
     </option>
   </component>

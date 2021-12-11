@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "702055484755",
+    "firebase_url": "https://sharelist-70c10-default-rtdb.firebaseio.com",
     "project_id": "sharelist-70c10",
     "storage_bucket": "sharelist-70c10.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "702055484755-94pkntog711b9nnbqjhbau3b8uv5gano.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iasoftwares.sharelist",
+            "certificate_hash": "4dba2e08761800e7ad869e95d40cb8a4bf0f59ff"
+          }
+        },
         {
           "client_id": "702055484755-gbvbd3gjelj0hilp3tvljbi98qb7onc5.apps.googleusercontent.com",
           "client_type": 3
