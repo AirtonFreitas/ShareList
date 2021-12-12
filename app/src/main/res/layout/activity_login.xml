@@ -87,8 +87,9 @@
             android:background="@drawable/rounded_btn_primary"
             android:text="Entrar"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btntLoginCadastroID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtLoginSenhaID" />
 
@@ -104,12 +105,9 @@
             android:textColor="@color/purple_700"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginEntrarID" />
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

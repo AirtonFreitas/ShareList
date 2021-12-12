@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -60,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, NewAccountActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -89,7 +89,10 @@ public class LoginActivity extends AppCompatActivity {
                         excecao = "Usuário não existe";
                         campoEmail.setError(excecao);
                         campoEmail.requestFocus();
-                    } catch (Exception e) {
+                    }catch (FirebaseTooManyRequestsException e){
+                        excecao = "Devido ao número frequente de tentativas de Login, sua conexão foi bloqueada temporariamente.\nTente novamente mais tarde.";
+                    Toast.makeText(LoginActivity.this, excecao, Toast.LENGTH_LONG).show();
+                    }catch (Exception e) {
                         excecao = "Tivemos um erro no seu Login. Detalhamento: " + e.getMessage();
                         e.printStackTrace();
                         Toast.makeText(LoginActivity.this, excecao, Toast.LENGTH_SHORT).show();
