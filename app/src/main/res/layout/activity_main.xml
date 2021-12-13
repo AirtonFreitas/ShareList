@@ -14,13 +14,168 @@
         tools:context=".MainActivity">
 
 
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Seja bem vindo, Airton!"
+            app:layout_constraintBottom_toTopOf="@+id/imageView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TESTE de texto da MAIN"
-            tools:layout_editor_absoluteX="129dp"
-            tools:layout_editor_absoluteY="356dp" />
+            android:text="Vamos às Compras?"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/squareOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+
+
+        <LinearLayout
+            android:id="@+id/squareOne"
+            android:layout_width="206dp"
+            android:layout_height="@android:dimen/thumbnail_width"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/squareTREE"
+            app:layout_constraintEnd_toStartOf="@+id/squareTwo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dip"
+                android:src="@drawable/novalista" />
+
+            <TextView
+                android:id="@+id/button_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="NOVA LISTA"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/squareTwo"
+            android:layout_width="0dp"
+            android:layout_height="@android:dimen/thumbnail_width"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/screen_main_two"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/squareOne"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dip"
+                android:src="@drawable/paperwh" />
+
+            <TextView
+                android:id="@+id/button_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="LISTAS ANTERIORES"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/squareTREE"
+            android:layout_width="0dp"
+            android:layout_height="@android:dimen/thumbnail_width"
+            android:layout_weight="1"
+            android:background="@drawable/screen_main_two"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/squareTFOUR"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/squareOne">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dip"
+                android:src="@drawable/listasprontaswh" />
+
+            <TextView
+                android:id="@+id/button_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="LISTAS PRONTAS"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/squareTFOUR"
+            android:layout_width="0dp"
+            android:layout_height="@android:dimen/thumbnail_width"
+            android:layout_weight="1"
+            android:background="@drawable/screen_main_one"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/squareTREE"
+            app:layout_constraintTop_toBottomOf="@+id/squareTwo">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="10dip"
+                android:src="@drawable/irascompras" />
+
+            <TextView
+                android:id="@+id/button_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="IR AS COMPRAS"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 

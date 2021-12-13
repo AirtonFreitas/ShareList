@@ -8,10 +8,19 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_second.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_secondary.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_edittext.xml" value="0.21875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/roundshape4.xml" value="0.31574074074074077" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/roundshape4_pressed.xml" value="0.31574074074074077" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/roundshape4_selector.xml" value="1.065625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/screenMainOne.xml" value="0.31574074074074077" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/screenMainTwo.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/screen_main_one.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/screen_main_two.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_new_account.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/roundshape4_selector.xml" value="0.3625" />
       </map>
     </option>
   </component>

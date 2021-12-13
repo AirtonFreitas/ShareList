@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
+import com.iasoftwares.sharelist.helper.Base64Custom;
 import com.iasoftwares.sharelist.model.Usuario;
 
 public class NewAccountActivity extends AppCompatActivity {
@@ -90,7 +91,9 @@ public class NewAccountActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    String execao
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+usuario.setIdUsuario(idUsuario);
+usuario.salvar();
                     abrirTelaprincipal();
                 } else {
                     String excecao = "";
