@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:text="Vamos às Compras?"
             android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/squareOne"
+            app:layout_constraintBottom_toTopOf="@+id/square_one"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,18 +53,19 @@
 
 
         <LinearLayout
-            android:id="@+id/squareOne"
+            android:id="@+id/square_one"
             android:layout_width="206dp"
             android:layout_height="@android:dimen/thumbnail_width"
             android:layout_marginTop="32dp"
             android:layout_weight="1"
             android:gravity="center|center_horizontal"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/squareTREE"
-            app:layout_constraintEnd_toStartOf="@+id/squareTwo"
+            app:layout_constraintBottom_toTopOf="@+id/square_three"
+            app:layout_constraintEnd_toStartOf="@+id/square_two"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:onClick="NewList">
 
             <ImageView
                 android:layout_width="80dp"
@@ -79,12 +80,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="NOVA LISTA"
-                android:textColor="@color/primaryDarkColor"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColor"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/squareTwo"
+            android:id="@+id/square_two"
             android:layout_width="0dp"
             android:layout_height="@android:dimen/thumbnail_width"
             android:layout_marginTop="32dp"
@@ -94,8 +96,9 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/squareOne"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintStart_toEndOf="@+id/square_one"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:onClick="OldLists">
 
             <ImageView
                 android:layout_width="80dp"
@@ -109,13 +112,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="LISTAS ANTERIORES"
+                android:text="LISTAS \n ANTERIORES"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/squareTREE"
+            android:id="@+id/square_three"
             android:layout_width="0dp"
             android:layout_height="@android:dimen/thumbnail_width"
             android:layout_weight="1"
@@ -123,10 +127,11 @@
             android:gravity="center|center_horizontal"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/squareTFOUR"
+            app:layout_constraintEnd_toStartOf="@+id/square_four"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/squareOne">
+            app:layout_constraintTop_toBottomOf="@+id/square_one"
+            android:onClick="CustomList">
 
             <ImageView
                 android:layout_width="80dp"
@@ -140,13 +145,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="LISTAS PRONTAS"
+                android:text="LISTAS \n PERSONALIZADAS"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/squareTFOUR"
+            android:id="@+id/square_four"
             android:layout_width="0dp"
             android:layout_height="@android:dimen/thumbnail_width"
             android:layout_weight="1"
@@ -155,15 +161,17 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/squareTREE"
-            app:layout_constraintTop_toBottomOf="@+id/squareTwo">
+            app:layout_constraintStart_toEndOf="@+id/square_three"
+            app:layout_constraintTop_toBottomOf="@+id/square_two"
+            >
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:paddingBottom="10dip"
-                android:src="@drawable/irascompras" />
+                android:src="@drawable/irascompras"
+               />
 
             <TextView
                 android:id="@+id/button_text2"
@@ -171,7 +179,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="IR AS COMPRAS"
-                android:textColor="@color/primaryDarkColor"
+                android:textAlignment="center"
+                android:textColor="@color/primaryColor"
                 android:textSize="16sp" />
         </LinearLayout>
 
