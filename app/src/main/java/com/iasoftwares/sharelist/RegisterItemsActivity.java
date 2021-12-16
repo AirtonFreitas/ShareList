@@ -16,7 +16,7 @@ import com.iasoftwares.sharelist.model.ProdutosLista;
 public class RegisterItemsActivity extends AppCompatActivity {
     private Spinner spinnerCategories;
     private Object ViewGroup;
-    private EditText descricao, observacao;
+    private EditText descricao, observacao, quantidade;
     private ProdutosLista produtosLista;
     private Button btnSave, btnBack;
 
@@ -27,8 +27,10 @@ public class RegisterItemsActivity extends AppCompatActivity {
         spinnerCategories = findViewById(R.id.spinnerCateg);
         descricao = findViewById(R.id.descricaoItemID);
         observacao = findViewById(R.id.observacaoItemID);
+        quantidade = findViewById(R.id.quantidadeItemID);
         btnSave = findViewById(R.id.btnSaveID);
         btnBack = findViewById(R.id.btnBackID);
+
         AtivarSpinner();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +42,7 @@ public class RegisterItemsActivity extends AppCompatActivity {
                     Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
                     descricao.setText("");
                     observacao.setText("");
+                    descricao.requestFocus();
                     AtivarSpinner();
                 } else {
                     descricao.setError("Campo vazio!");
@@ -57,8 +60,6 @@ public class RegisterItemsActivity extends AppCompatActivity {
         finishAffinity();
             }
         });
-
-
     }
 
     private void AtivarSpinner() {
@@ -78,6 +79,8 @@ public class RegisterItemsActivity extends AppCompatActivity {
         produtosLista.setDescricao(descricao.getText().toString());
         produtosLista.setCategoria(spinnerCategories.getSelectedItem().toString());
         produtosLista.setObservacao(observacao.getText().toString());
+        produtosLista.setQuantidade(quantidade.getText().toString());
+        produtosLista.setStatus("N");
         produtosLista.salvar();
     }
 }

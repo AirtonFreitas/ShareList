@@ -6,4 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".OldListActivity">
 
+    <include layout="@layout/reclycler_view" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,11 @@ public class ProdutosLista {
     private String descricao;
     private String categoria;
     private String observacao;
+    private String quantidade;
+    private String status;
+    private String key;
+
+
 
     public ProdutosLista() {
 
@@ -60,6 +65,27 @@ public class ProdutosLista {
         this.observacao = observacao;
     }
 
+    public String getQuantidade() {
+        return quantidade;
+    }
 
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
+    }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 }
