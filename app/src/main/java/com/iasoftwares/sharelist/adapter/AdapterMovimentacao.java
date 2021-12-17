@@ -37,16 +37,17 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());
         holder.observacao.setText(movimentacao.getObservacao());
-        holder.status.setText(movimentacao.getStatus());
-        holder.nomeLista.setText(movimentacao.getNomeLista());
+        //holder.status.setText(movimentacao.getStatus());
+        //holder.nomeLista.setText(movimentacao.getNomeLista());
 
 
-        /*
-        colore de azul ou vermelho a movimentação
-        if (movimentacao.getTipo() == "d" || movimentacao.getTipo().equals("d")) {
-            holder.quantidade.setTextColor(context.getResources().getColor(R.color.colorAccent));
-            holder.quantidade.setText("-" + movimentacao.getValor());
-        }*/
+
+        //colore de azul ou vermelho a movimentação
+        /*if (movimentacao.getStatus() == "d" || movimentacao.getStatus().equals("d")) {
+            holder.quantidade.setTextColor(context.getResources().getColor(R.color.pur));
+            //holder.quantidade.setText("-" + movimentacao.getValor());
+        }
+        */
     }
 
 
@@ -67,12 +68,14 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
             quantidade = itemView.findViewById(R.id.textAdapterQuantidade);
             categoria = itemView.findViewById(R.id.textAdapterCategoria);
             observacao = itemView.findViewById(R.id.textAdapterObservacao);
-          /*  statuscheckbox = itemView.findViewById(R.id.checkboxID);
+            statuscheckbox = itemView.findViewById(R.id.checkboxID);
 
-            if(status.equals("N")){
-                statuscheckbox.setChecked(false);
-            }else{
+
+
+            /*if(descricao.getText().toString() == "Teste"){
                 statuscheckbox.setChecked(true);
+            }else{
+                statuscheckbox.setChecked(false);
                 quantidade.setPaintFlags(quantidade.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             }*/
         }
