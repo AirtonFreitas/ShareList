@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import com.iasoftwares.sharelist.DialogQuestionNameList;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
@@ -78,4 +79,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, GoMarketActivity.class);
         startActivity(intent);
     }
+
 }

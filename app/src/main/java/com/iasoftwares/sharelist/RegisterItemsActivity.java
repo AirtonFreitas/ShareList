@@ -1,5 +1,6 @@
 package com.iasoftwares.sharelist;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class RegisterItemsActivity extends AppCompatActivity {
         quantidade = findViewById(R.id.quantidadeItemID);
         btnSave = findViewById(R.id.btnSaveID);
         btnBack = findViewById(R.id.btnBackID);
+        openDialog();
 
         AtivarSpinner();
 
@@ -42,6 +44,7 @@ public class RegisterItemsActivity extends AppCompatActivity {
                     Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
                     descricao.setText("");
                     observacao.setText("");
+                    quantidade.setText("");
                     descricao.requestFocus();
                     AtivarSpinner();
                 } else {
@@ -60,6 +63,11 @@ public class RegisterItemsActivity extends AppCompatActivity {
         finishAffinity();
             }
         });
+    }
+
+    private void openDialog() {
+        DialogQuestionNameList dialogQuestionNameList = new DialogQuestionNameList();
+        dialogQuestionNameList.show(getSupportFragmentManager(), "Dialog");
     }
 
     private void AtivarSpinner() {
