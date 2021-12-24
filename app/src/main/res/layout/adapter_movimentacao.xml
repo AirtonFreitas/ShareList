@@ -18,20 +18,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
-
-            <CheckBox
-                android:id="@+id/checkboxID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/editID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_baseline_edit" />
 
             <TextView
                 android:id="@+id/textAdapterDescricao"
                 android:layout_width="248dp"
                 android:layout_height="48dp"
                 android:layout_weight="5"
-                android:paddingStart="10dp"
+                android:paddingStart="15dp"
                 android:text="Descrição"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 android:gravity="bottom"/>
 
@@ -53,8 +56,11 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/ic_baseline_delete_forever" />
+
+
 
         </LinearLayout>
 

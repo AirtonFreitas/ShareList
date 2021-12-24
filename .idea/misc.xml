@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BuildAttributionWarningsFilter">
+    <option name="noGCSettingWarning" value="true" />
+  </component>
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_alternate_email_gray.xml" value="0.21481481481481482" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_delete_forever.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_primary.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_second.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_secondary.xml" value="0.37864583333333335" />
@@ -19,18 +23,23 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_custom_list.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_go_market.xml" value="0.35208333333333336" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_lists.xml" value="0.35" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_new_account.xml" value="0.25" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_old_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_old_list.xml" value="0.12658227848101267" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_old_lists.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.3585434173669468" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_movimentacao.xml" value="0.5" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_movimentacao.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/nome_list.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view.xml" value="0.23876404494382023" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view_list.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/roundshape4_selector.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/text_input_password.xml" value="0.3605128205128205" />
+        <entry key="..\:/Users/Admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.35" />
+        <entry key="..\:/Users/Admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.35" />
       </map>
     </option>
   </component>

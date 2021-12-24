@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".ListsActivity"
+            android:exported="false" />
+        <activity
             android:name=".GoMarketActivity"
             android:exported="false" />
         <activity

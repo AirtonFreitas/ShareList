@@ -1,6 +1,5 @@
 package com.iasoftwares.sharelist;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,30 +9,37 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iasoftwares.sharelist.DialogQuestionNameList;
 import com.iasoftwares.sharelist.model.ProdutosLista;
 
-public class RegisterItemsActivity extends AppCompatActivity {
-    private Spinner spinnerCategories;
-    private Object ViewGroup;
+public class RegisterItemsActivity extends AppCompatActivity implements DialogQuestionNameList.DialogListener {
+    private Spinner spinnerCategories, spinnerUN;
     private EditText descricao, observacao, quantidade;
     private ProdutosLista produtosLista;
     private Button btnSave, btnBack;
+    private TextView textViewNameList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_items);
         spinnerCategories = findViewById(R.id.spinnerCateg);
+        spinnerUN = findViewById(R.id.spinnerUN);
         descricao = findViewById(R.id.descricaoItemID);
         observacao = findViewById(R.id.observacaoItemID);
         quantidade = findViewById(R.id.quantidadeItemID);
         btnSave = findViewById(R.id.btnSaveID);
         btnBack = findViewById(R.id.btnBackID);
+
+        textViewNameList = findViewById(R.id.textViewNameList);
         openDialog();
 
-        AtivarSpinner();
+
+        AtivarSpinnerCateg();
+        AtivarSpinnerUn();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +52,8 @@ public class RegisterItemsActivity extends AppCompatActivity {
                     observacao.setText("");
                     quantidade.setText("");
                     descricao.requestFocus();
-                    AtivarSpinner();
+                    AtivarSpinnerCateg();
+                    AtivarSpinnerUn();
                 } else {
                     descricao.setError("Campo vazio!");
                     descricao.requestFocus();
@@ -58,19 +65,31 @@ public class RegisterItemsActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        Intent intent = new Intent(RegisterItemsActivity.this, MainActivity.class);
-        startActivity(intent);
-        finishAffinity();
+                Intent intent = new Intent(RegisterItemsActivity.this, MainActivity.class);
+                startActivity(intent);
+                finishAffinity();
             }
         });
+    }
+
+    private void AtivarSpinnerUn() {
+        String[] arraySpinnerUn = new String[]{
+                "UN", "KG", "LT", "CX", "PCT", "RL"
+        };
+        Spinner spinnerUnid = (Spinner) findViewById(R.id.spinnerUN);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinnerUn);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerUnid.setAdapter(adapter);
     }
 
     private void openDialog() {
         DialogQuestionNameList dialogQuestionNameList = new DialogQuestionNameList();
         dialogQuestionNameList.show(getSupportFragmentManager(), "Dialog");
+
     }
 
-    private void AtivarSpinner() {
+    private void AtivarSpinnerCateg() {
         String[] arraySpinner = new String[]{
                 "Escolha a Categoria", "Alimentos", "Bebidas", "Bebidas Alcoólicas", "Congelados e frios", "Higiene Pessoal", "Hortifruti", "Padaria", "Produtos de Limpeza", "Outros"
         };
@@ -83,12 +102,18 @@ public class RegisterItemsActivity extends AppCompatActivity {
 
     public void salvarLista() {
         produtosLista = new ProdutosLista();
-        produtosLista.setNomeLista("Segunda Lista");
+        produtosLista.setNomeLista(textViewNameList.getText().toString());
         produtosLista.setDescricao(descricao.getText().toString());
         produtosLista.setCategoria(spinnerCategories.getSelectedItem().toString());
+        produtosLista.setUnd(spinnerUN.getSelectedItem().toString());
         produtosLista.setObservacao(observacao.getText().toString());
         produtosLista.setQuantidade(quantidade.getText().toString());
         produtosLista.setStatus("N");
         produtosLista.salvar();
+    }
+
+    @Override
+    public void appyText(String nameList) {
+        textViewNameList.setText(nameList);
     }
 }

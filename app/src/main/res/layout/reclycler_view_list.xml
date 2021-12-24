@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:showIn="@layout/activity_old_list">
+    tools:showIn="@layout/activity_lists">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".OldListActivity">
+        tools:context=".ListsActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerProdutosID"
+            android:id="@+id/recyclerListasID"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
@@ -23,7 +23,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
 
         <ImageView
             android:id="@+id/imageView3"
@@ -40,45 +39,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Churrasco Final de semana"
+            android:text="Listas de Compras Registradas"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerProdutosID"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerListasID"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnFinalizarID"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/alt_btn"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_btn_primary"
-            android:text="Finalizar"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnBacksID" />
-
 
         <Button
             android:id="@+id/btnBacksID"
             android:layout_width="0dp"
             android:layout_height="@dimen/alt_btn"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_btn_secondary"
             android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnFinalizarID"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Voltar"
             android:textColor="@color/primaryColor"
-            />
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Voltar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

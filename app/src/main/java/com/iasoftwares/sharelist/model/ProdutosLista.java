@@ -15,13 +15,12 @@ public class ProdutosLista {
     private String observacao;
     private String quantidade;
     private String status;
+    private String und;
     private String key;
 
 
 
-    public ProdutosLista() {
 
-    }
     public void salvar(){
         FirebaseAuth autentic = SettingsFirebase.getFirebaseAutenticacao();
         String idUsuario = Base64Custom.codificarBase64(autentic.getCurrentUser().getEmail());
@@ -32,7 +31,6 @@ public class ProdutosLista {
                 .child(nomeLista)
                 .push().setValue(this);
     }
-    @Exclude
     public String getNomeLista() {
         return nomeLista;
     }
@@ -88,4 +86,13 @@ public class ProdutosLista {
     public void setKey(String key) {
         this.key = key;
     }
+
+    public String getUnd() {
+        return und;
+    }
+
+    public void setUnd(String und) {
+        this.und = und;
+    }
+
 }

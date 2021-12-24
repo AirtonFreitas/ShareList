@@ -1,20 +1,22 @@
 package com.iasoftwares.sharelist;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+
 public class DialogQuestionNameList extends AppCompatDialogFragment {
-    private EditText textName, textDate;
+    private EditText edtTextName;
+    private DialogListener listener;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -22,21 +24,44 @@ public class DialogQuestionNameList extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog, null);
-        builder.setView(view).setTitle("Qual lista você deseja criar?").setIcon(R.drawable.ic_baseline_playlist_add)
+        builder.setView(view)
+                .setTitle("Qual lista você deseja criar?")
+                .setIcon(R.drawable.ic_baseline_playlist_add)
                 .setNeutralButton("Voltar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        Intent intent = new Intent(getActivity().getApplication(), MainActivity.class);
+                        startActivity(intent);
                     }
                 })
                 .setPositiveButton("Gravar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        edtTextName = view.findViewById(R.id.edtTextNameList);
+                        String nameList = edtTextName.getText().toString();
+                        if(!nameList.isEmpty()){
+                            listener.appyText(nameList);
+                        }else{
+                            listener.appyText("Lista de Compras");
+                        }
                     }
                 });
-        textName = view.findViewById(R.id.edtTextName);
-        textDate = view.findViewById(R.id.EdirTextDateAlert);
+
         return builder.create();
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (DialogListener) context;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public interface DialogListener{
+        void appyText(String nameList);
+}
 
 }

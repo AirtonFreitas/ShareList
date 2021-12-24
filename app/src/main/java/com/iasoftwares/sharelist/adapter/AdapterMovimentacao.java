@@ -59,7 +59,7 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView descricao, quantidade, categoria, observacao, nomeLista, status;
-        CheckBox statuscheckbox;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -68,7 +68,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
             quantidade = itemView.findViewById(R.id.textAdapterQuantidade);
             categoria = itemView.findViewById(R.id.textAdapterCategoria);
             observacao = itemView.findViewById(R.id.textAdapterObservacao);
-            statuscheckbox = itemView.findViewById(R.id.checkboxID);
 
 
 
