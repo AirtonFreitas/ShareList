@@ -3,7 +3,7 @@
 
 
 
-Recursos já usados:
+Recursos já usados:\n
 Cadastro e Login com Firebase;
 
 RecyclerView para as listas;
