@@ -1,7 +1,9 @@
 ### Aplicativo em Desenvolvimento
 
-Recursos já usados:
 
+
+
+Recursos já usados:
 Cadastro e Login com Firebase;
 
 RecyclerView para as listas;
