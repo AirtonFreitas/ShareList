@@ -1,10 +1,15 @@
 ### Aplicativo em Desenvolvimento
 
 Recursos já usados:
+
 Cadastro e Login com Firebase;
+
 RecyclerView para as listas;
+
 AlertDialog para as caixas de texto;
+
 XML's customizados para botões e editText's;
+
 Spinners para seleção.
 
 
