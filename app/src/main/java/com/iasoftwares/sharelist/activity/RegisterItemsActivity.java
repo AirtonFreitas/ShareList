@@ -1,4 +1,4 @@
-package com.iasoftwares.sharelist;
+package com.iasoftwares.sharelist.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iasoftwares.sharelist.DialogQuestionNameList;
+import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.model.ProdutosLista;
 
 public class RegisterItemsActivity extends AppCompatActivity implements DialogQuestionNameList.DialogListener {
@@ -44,20 +45,7 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String textDescricao = descricao.getText().toString();
-                if (!textDescricao.isEmpty()) {
-                    salvarLista();
-                    Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
-                    descricao.setText("");
-                    observacao.setText("");
-                    quantidade.setText("");
-                    descricao.requestFocus();
-                    AtivarSpinnerCateg();
-                    AtivarSpinnerUn();
-                } else {
-                    descricao.setError("Campo vazio!");
-                    descricao.requestFocus();
-                }
+                GravarItem();
             }
 
         });
@@ -70,6 +58,23 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
                 finishAffinity();
             }
         });
+    }
+
+    private void GravarItem() {
+        String textDescricao = descricao.getText().toString();
+        if (!textDescricao.isEmpty()) {
+            salvarLista();
+            Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
+            descricao.setText("");
+            observacao.setText("");
+            quantidade.setText("");
+            descricao.requestFocus();
+            AtivarSpinnerCateg();
+            AtivarSpinnerUn();
+        } else {
+            descricao.setError("Campo vazio!");
+            descricao.requestFocus();
+        }
     }
 
     private void AtivarSpinnerUn() {

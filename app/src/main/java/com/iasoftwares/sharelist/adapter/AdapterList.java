@@ -33,7 +33,7 @@ public class AdapterList extends RecyclerView.Adapter<AdapterList.MyViewHolder> 
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ProdutosLista movimentacao = movimentacoes.get(position);
 
-    holder.nomeLista.setText(movimentacao.toString());
+    holder.nomeLista.setText(movimentacao.getKey());
     }
 
 

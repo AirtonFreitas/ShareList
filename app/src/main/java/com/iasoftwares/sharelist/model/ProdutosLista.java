@@ -20,7 +20,6 @@ public class ProdutosLista {
 
 
 
-
     public void salvar(){
         FirebaseAuth autentic = SettingsFirebase.getFirebaseAutenticacao();
         String idUsuario = Base64Custom.codificarBase64(autentic.getCurrentUser().getEmail());

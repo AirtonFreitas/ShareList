@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".ListsActivity"
+            android:name=".activity.ListsActivity"
             android:exported="false" />
         <activity
-            android:name=".GoMarketActivity"
+            android:name=".activity.GoMarketActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomListActivity"
+            android:name=".activity.CustomListActivity"
             android:exported="false" />
         <activity
-            android:name=".OldListActivity"
+            android:name=".activity.ItemsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterItemsActivity"
+            android:name=".activity.RegisterItemsActivity"
             android:exported="false" />
         <activity
-            android:name=".NewAccountActivity"
+            android:name=".activity.NewAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.iasoftwares.sharelist;
+package com.iasoftwares.sharelist.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
 import com.iasoftwares.sharelist.model.Usuario;

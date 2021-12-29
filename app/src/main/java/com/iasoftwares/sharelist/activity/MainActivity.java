@@ -1,15 +1,14 @@
-package com.iasoftwares.sharelist;
+package com.iasoftwares.sharelist.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import com.iasoftwares.sharelist.DialogQuestionNameList;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OldLists() {
-        Intent intent = new Intent(MainActivity.this, ListsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
         startActivity(intent);
     }
 

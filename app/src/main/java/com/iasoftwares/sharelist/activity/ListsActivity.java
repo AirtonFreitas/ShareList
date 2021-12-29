@@ -1,15 +1,18 @@
-package com.iasoftwares.sharelist;
+package com.iasoftwares.sharelist.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.util.Log;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.adapter.AdapterList;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
@@ -21,7 +24,7 @@ import java.util.List;
 public class ListsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdapterList adapterList;
-    private List<ProdutosLista> produtos = new ArrayList<>();
+    private List produtos = new ArrayList<>();
     private ProdutosLista prodLista;
     private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
     private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
@@ -38,8 +41,7 @@ public class ListsActivity extends AppCompatActivity {
 
     }
 
-
-    private void recuperarItens() {
+    private void recuperarListas() {
         adapterList = new AdapterList(produtos, this);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -47,11 +49,9 @@ public class ListsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterList);
 
-
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
         movimentacaoRef = firebaseRef.child("Listas").child(idUsuario);
-
 
         valueEventListenerLista = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,11 +73,10 @@ public class ListsActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-        recuperarItens();
+        recuperarListas();
     }
 
     @Override

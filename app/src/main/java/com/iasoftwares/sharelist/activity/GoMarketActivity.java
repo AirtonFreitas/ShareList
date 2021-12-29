@@ -1,14 +1,16 @@
-package com.iasoftwares.sharelist;
+package com.iasoftwares.sharelist.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CustomListActivity extends AppCompatActivity {
+import com.iasoftwares.sharelist.R;
+
+public class GoMarketActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_list);
+        setContentView(R.layout.activity_go_market);
     }
 }
