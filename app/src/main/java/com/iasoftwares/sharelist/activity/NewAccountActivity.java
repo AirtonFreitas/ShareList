@@ -93,8 +93,8 @@ public class NewAccountActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
-usuario.setIdUsuario(idUsuario);
-usuario.salvar();
+                    usuario.setIdUsuario(idUsuario);
+                    usuario.salvar();
                     abrirTelaprincipal();
                 } else {
                     String excecao = "";

@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.adapter.AdapterMovimentacao;
+import com.iasoftwares.sharelist.adapter.OnClick;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
 import com.iasoftwares.sharelist.model.ProdutosLista;
@@ -26,7 +25,9 @@ import com.iasoftwares.sharelist.model.ProdutosLista;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemsActivity extends AppCompatActivity {
+import kotlin.Unit;
+
+public class ItemsActivity extends AppCompatActivity implements OnClick {
     private RecyclerView recyclerView;
     private AdapterMovimentacao adapterMovimentacao;
     private List<ProdutosLista> produtos = new ArrayList<>();
@@ -44,7 +45,7 @@ public class ItemsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_old_list);
         recyclerView = findViewById(R.id.recyclerProdutosID);
 
-        adapterMovimentacao = new AdapterMovimentacao(produtos, this);
+        adapterMovimentacao = new AdapterMovimentacao(produtos, this, this);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -62,9 +63,7 @@ public class ItemsActivity extends AppCompatActivity {
     }
 
 
-
-
-    public void excluirMovimentacao(RecyclerView.ViewHolder viewHolder){
+    public void excluirMovimentacao(int position){
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 
@@ -77,14 +76,13 @@ public class ItemsActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                int position = viewHolder.getAbsoluteAdapterPosition();
                 prodLista = produtos.get( position );
 
                 String emailUsuario = autenticacao.getCurrentUser().getEmail();
                 String idUsuario = Base64Custom.codificarBase64( emailUsuario );
-                movimentacaoRef = firebaseRef.child("movimentacao")
+                movimentacaoRef = firebaseRef.child("Listas")
                         .child( idUsuario )
-                        .child(produtoSelecionado.getNomeLista() );
+                        .child(prodLista.getNomeLista() );
 
                 movimentacaoRef.child( prodLista.getKey() ).removeValue();
                 adapterMovimentacao.notifyItemRemoved( position );
@@ -104,14 +102,14 @@ public class ItemsActivity extends AppCompatActivity {
 
         AlertDialog alert = alertDialog.create();
         alert.show();
-
-
     }
+
+
     private void recuperarItens() {
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child("aaa");
+        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child("Lista de Compras");
 
         valueEventListenerLista = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -141,5 +139,16 @@ public class ItemsActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         movimentacaoRef.removeEventListener(valueEventListenerLista);
+    }
+
+    @Override
+    public void DeletaItem(int position) {
+        //Toast.makeText(this,"item deletado", Toast.LENGTH_SHORT).show();
+        excluirMovimentacao(position);
+    }
+
+    @Override
+    public void EditarItem(int position) {
+
     }
 }

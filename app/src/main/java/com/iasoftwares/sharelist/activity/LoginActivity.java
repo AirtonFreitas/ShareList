@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                         usuario.setEmail(textoEmail);
                         usuario.setSenha(textoSenha);
                         validarLogin();
+
                     } else {
                         campoSenha.setError("Campo vazio!");
                         campoSenha.requestFocus();
@@ -67,6 +68,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
 
     public void validarLogin(){
         autenticacao = SettingsFirebase.getFirebaseAutenticacao();

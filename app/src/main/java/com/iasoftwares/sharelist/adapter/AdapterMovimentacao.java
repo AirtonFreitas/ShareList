@@ -1,11 +1,10 @@
 package com.iasoftwares.sharelist.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.iasoftwares.sharelist.R;
-import com.iasoftwares.sharelist.activity.ItemsActivity;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.model.ProdutosLista;
 
@@ -22,13 +20,13 @@ import java.util.List;
 public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentacao.MyViewHolder> {
 
     List<ProdutosLista> movimentacoes;
+    OnClick onClick;
     Context context;
 
-
-
-    public AdapterMovimentacao(List<ProdutosLista> movimentacoes, Context context) {
+    public AdapterMovimentacao(List<ProdutosLista> movimentacoes, Context context, OnClick onClick) {
         this.movimentacoes = movimentacoes;
         this.context = context;
+        this.onClick = onClick;
     }
 
     @Override
@@ -39,13 +37,27 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
 
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ProdutosLista movimentacao = movimentacoes.get(position);
 
         holder.descricao.setText(movimentacao.getDescricao());
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());
         holder.observacao.setText(movimentacao.getObservacao());
+
+        holder.deletarItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick.DeletaItem(position);
+            }
+        });
+        holder.editarItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClick.EditarItem(position);
+            }
+        });
+
         //holder.status.setText(movimentacao.getStatus());
         //holder.nomeLista.setText(movimentacao.getNomeLista());
 
@@ -63,8 +75,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
     private void removerItem(int position) {
 
         DatabaseReference movimentacaoRef = SettingsFirebase.getFirebaseDatabase();
-
-
         movimentacaoRef.removeValue();
         movimentacaoRef.getKey();
         movimentacoes.remove(position);
@@ -96,7 +106,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
             editarItem = itemView.findViewById(R.id.editID);
 
 
-
             /*if(descricao.getText().toString() == "Teste"){
                 statuscheckbox.setChecked(true);
             }else{
@@ -108,3 +117,4 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
     }
 
 }
+
