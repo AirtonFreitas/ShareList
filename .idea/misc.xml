@@ -29,10 +29,11 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_new_account.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_old_list.xml" value="0.12658227848101267" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_old_lists.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_list.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_movimentacao.xml" value="0.5" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog_edit_item.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/nome_list.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view.xml" value="0.23876404494382023" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view_list.xml" value="0.25" />

@@ -34,7 +34,6 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         quantidade = findViewById(R.id.quantidadeItemID);
         btnSave = findViewById(R.id.btnSaveID);
         btnBack = findViewById(R.id.btnBackID);
-
         textViewNameList = findViewById(R.id.textViewNameList);
         openDialog();
 

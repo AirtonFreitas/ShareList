@@ -44,7 +44,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());
         holder.observacao.setText(movimentacao.getObservacao());
-
         holder.deletarItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,31 +56,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
                 onClick.EditarItem(position);
             }
         });
-
-        //holder.status.setText(movimentacao.getStatus());
-        //holder.nomeLista.setText(movimentacao.getNomeLista());
-
-        //holder.deletarItem.setOnClickListener(v -> removerItem(position));
-
-
-        //colore de azul ou vermelho a movimentação
-        /*if (movimentacao.getStatus() == "d" || movimentacao.getStatus().equals("d")) {
-            holder.quantidade.setTextColor(context.getResources().getColor(R.color.pur));
-            //holder.quantidade.setText("-" + movimentacao.getValor());
-        }
-        */
-    }
-
-    private void removerItem(int position) {
-
-        DatabaseReference movimentacaoRef = SettingsFirebase.getFirebaseDatabase();
-        movimentacaoRef.removeValue();
-        movimentacaoRef.getKey();
-        movimentacoes.remove(position);
-
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, movimentacoes.size());
-
     }
 
     @Override
@@ -97,21 +71,12 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
 
         public MyViewHolder(View itemView) {
             super(itemView);
-
             descricao = itemView.findViewById(R.id.textAdapterDescricao);
             quantidade = itemView.findViewById(R.id.textAdapterQuantidade);
             categoria = itemView.findViewById(R.id.textAdapterCategoria);
             observacao = itemView.findViewById(R.id.textAdapterObservacao);
             deletarItem = itemView.findViewById(R.id.deleteID);
             editarItem = itemView.findViewById(R.id.editID);
-
-
-            /*if(descricao.getText().toString() == "Teste"){
-                statuscheckbox.setChecked(true);
-            }else{
-                statuscheckbox.setChecked(false);
-                quantidade.setPaintFlags(quantidade.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            }*/
         }
 
     }
