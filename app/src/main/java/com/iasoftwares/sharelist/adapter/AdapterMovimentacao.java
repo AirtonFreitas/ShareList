@@ -35,7 +35,6 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
         return new MyViewHolder(itemLista);
     }
 
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ProdutosLista movimentacao = movimentacoes.get(position);

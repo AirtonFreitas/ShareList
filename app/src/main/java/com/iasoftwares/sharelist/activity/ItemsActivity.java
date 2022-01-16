@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,14 +54,18 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterMovimentacao);
-        recuperarItens();
+        ;
+        Intent intent = getIntent();
+        String recebida = intent.getStringExtra("chosenList");
+        //Toast.makeText(this, "A lista selecionada é a : "+ recebida, Toast.LENGTH_LONG).show();
+        recuperarItens(recebida);
     }
 
     public void deleteItem(int position) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Excluir Produto da Lista?");
         alertDialog.setIcon(R.drawable.ic_baseline_delete);
-        alertDialog.setMessage("Você tem certeza que deseja realmente excluir esse produto da sua lista?");
+        alertDialog.setMessage("Você tem certeza que deseja excluir esse produto da sua lista?");
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
@@ -72,10 +77,8 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 movimentacaoRef = firebaseRef.child("Listas")
                         .child(idUsuario)
                         .child(prodLista.getNomeLista());
-
                 movimentacaoRef.child(prodLista.getKey()).removeValue();
                 adapterMovimentacao.notifyItemRemoved(position);
-
             }
         });
 
@@ -88,15 +91,17 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 adapterMovimentacao.notifyDataSetChanged();
             }
         });
-
         AlertDialog alert = alertDialog.create();
         alert.show();
     }
 
-    private void recuperarItens() {
+    private void recuperarItens(String recebida) {
+
+
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child("Lista de Compras");
+        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child(recebida);
+        //Toast.makeText(this, "O valor de movimentacaoRef é : "+movimentacaoRef.getKey(), Toast.LENGTH_LONG).show();
         valueEventListenerLista = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -108,7 +113,6 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 }
                 adapterMovimentacao.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
@@ -138,6 +142,11 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         editItem(position);
     }
 
+    @Override
+    public void EscolheLista(int position) {
+
+    }
+
     private void openDialogEdit() {
         DialogEditItem dialogEditItem = new DialogEditItem();
         dialogEditItem.show(getSupportFragmentManager(), "Dialog");
@@ -145,28 +154,19 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
 
     @Override
     public void appyText(String newDescription, int newQtd) {
-        textDescrp.setText(newDescription);
-        textQtd.setText(newQtd);
-
-
         }
 
     public void editItem(int position) {
+        prodLista = produtos.get(position);
 
-for(textDescrp.getText().toString(); textDescrp.getText().toString().isEmpty();  ){
-    prodLista = produtos.get(position);
+        String emailUsuario = autenticacao.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+        movimentacaoRef = firebaseRef.child("Listas")
+                .child(idUsuario)
+                .child(prodLista.getNomeLista());
 
-
-    String emailUsuario = autenticacao.getCurrentUser().getEmail();
-    String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-    movimentacaoRef = firebaseRef.child("Listas")
-            .child(idUsuario)
-            .child(prodLista.getNomeLista());
-
-    movimentacaoRef.child(prodLista.getKey()).child("descricao").setValue(textDescrp.getText().toString());
-    movimentacaoRef.child(prodLista.getKey()).child("quantidade").setValue(textQtd.getText().toString());
-}
-
+        movimentacaoRef.child(prodLista.getKey()).child("descricao").setValue("textDescrp.getText().toString()");
+        movimentacaoRef.child(prodLista.getKey()).child("quantidade").setValue("textQtd.getText().toString()");
     }
 
 }

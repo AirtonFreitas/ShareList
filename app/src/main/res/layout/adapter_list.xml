@@ -23,7 +23,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/deleteID"
+            android:id="@+id/deleteIDList"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
