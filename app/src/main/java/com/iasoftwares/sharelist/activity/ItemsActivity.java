@@ -42,7 +42,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_old_list);
+        setContentView(R.layout.activity_item_lists);
         recyclerView = findViewById(R.id.recyclerProdutosID);
         textDescrp = findViewById(R.id.textViewDescr);
         textQtd = findViewById(R.id.textViewQuant);

@@ -3,11 +3,15 @@ package com.iasoftwares.sharelist.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,20 +31,24 @@ public class NewAccountActivity extends AppCompatActivity {
     private Button botaoCadastrar, botaoLogin;
     private FirebaseAuth autenticacao;
     private Usuario usuario;
+    private TextView textLogin;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_account);
+        final boolean[] VISIBLE_PASSWORD = {false};
+
 
         campoNome = findViewById(R.id.edtNewAccountNomeID);
         campoEmail = findViewById(R.id.edtNewAccountEmailID);
         campoSenha = findViewById(R.id.edtNewAccountSenhaID);
         campoConfirmaSenha = findViewById(R.id.edtNewAccountSenhaBID);
         botaoCadastrar = findViewById(R.id.btnNewAccountEntrarID);
-        botaoLogin = findViewById(R.id.btntLoginCadastroID);
+        textLogin = findViewById(R.id.textLoginID);
 
-        botaoLogin.setOnClickListener(new View.OnClickListener() {
+        textLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NewAccountActivity.this, LoginActivity.class);
@@ -82,6 +90,56 @@ public class NewAccountActivity extends AppCompatActivity {
             }
         });
 
+        campoSenha.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (campoSenha.getRight() - campoSenha.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (VISIBLE_PASSWORD[0]) {
+                            VISIBLE_PASSWORD[0] = false;
+                            campoSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            campoSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility_off, 0);
+                        } else {
+                            VISIBLE_PASSWORD[0] = true;
+                            campoSenha.setInputType(InputType.TYPE_CLASS_TEXT);
+                            campoSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility, 0);
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+        });
+
+        campoConfirmaSenha.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (campoConfirmaSenha.getRight() - campoConfirmaSenha.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (VISIBLE_PASSWORD[0]) {
+                            VISIBLE_PASSWORD[0] = false;
+                            campoConfirmaSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            campoConfirmaSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility_off, 0);
+                        } else {
+                            VISIBLE_PASSWORD[0] = true;
+                            campoConfirmaSenha.setInputType(InputType.TYPE_CLASS_TEXT);
+                            campoConfirmaSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility, 0);
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+        });
+
     }
 
     private void createNewAccount() {
@@ -112,7 +170,6 @@ public class NewAccountActivity extends AppCompatActivity {
                         excecao = "Você já possui cadastro.";
                         campoEmail.setError(excecao);
                         campoEmail.requestFocus();
-                        botaoLogin.setVisibility(View.VISIBLE);
                     } catch (Exception e) {
                         excecao = "Tivemos um erro no seu cadastro. Detalhamento: " + e.getMessage();
                         e.printStackTrace();

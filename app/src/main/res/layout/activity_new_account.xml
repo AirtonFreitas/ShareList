@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/edtNewAccountNomeID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="32dp"
@@ -23,12 +23,13 @@
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_person_gray"
             android:ems="10"
-            android:hint="nome"
+            android:hint=" nome"
             android:inputType="text"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             app:layout_constraintBottom_toTopOf="@+id/edtNewAccountEmailID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -40,7 +41,7 @@
             android:background="@drawable/logo"
             app:layout_constraintBottom_toTopOf="@+id/edtNewAccountNomeID"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -54,46 +55,51 @@
             android:background="@drawable/rounded_btn_primary"
             android:text="Cadastrar"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/btntLoginCadastroID"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtNewAccountSenhaBID" />
 
         <EditText
             android:id="@+id/edtNewAccountSenhaID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_lock_gray"
+            android:drawableRight="@drawable/ic_baseline_visibility_off"
             android:ems="10"
-            android:hint="senha"
+            android:hint=" senha"
             android:inputType="textPassword"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
             app:layout_constraintBottom_toTopOf="@+id/edtNewAccountSenhaBID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtNewAccountEmailID" />
 
         <EditText
             android:id="@+id/edtNewAccountSenhaBID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_lock_gray"
+            android:drawableRight="@drawable/ic_baseline_visibility_off"
             android:ems="10"
-            android:hint="confirme sua senha"
+            android:hint=" confirme sua senha"
             android:inputType="textPassword"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
             app:layout_constraintBottom_toTopOf="@+id/btnNewAccountEntrarID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtNewAccountSenhaID" />
 
@@ -105,31 +111,14 @@
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/btntLoginCadastroID"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="60dp"
-            android:background="@drawable/rounded_btn_secondary"
-            android:text="Login"
-            android:textColor="@color/primaryColor"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnNewAccountEntrarID" />
-
         <EditText
             android:id="@+id/edtNewAccountEmailID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
@@ -137,14 +126,39 @@
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_email_gray"
             android:ems="10"
-            android:hint="e-mail"
+            android:hint=" e-mail"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             app:layout_constraintBottom_toTopOf="@+id/edtNewAccountSenhaID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtNewAccountNomeID" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="4dp"
+            android:text="Já possui uma conta?"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textLoginID"
+            app:layout_constraintTop_toBottomOf="@+id/btnNewAccountEntrarID" />
+
+        <TextView
+            android:id="@+id/textLoginID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:text="Entrar agora"
+            android:textColor="@color/primaryColor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnNewAccountEntrarID" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

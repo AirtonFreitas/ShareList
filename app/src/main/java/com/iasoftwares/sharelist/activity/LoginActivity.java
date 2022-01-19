@@ -3,11 +3,15 @@ package com.iasoftwares.sharelist.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,15 +30,42 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin, btnNewAccount;
     private Usuario usuario;
     private FirebaseAuth autenticacao;
+    private TextView newAccount;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        final boolean[] VISIBLE_PASSWORD = {false};
         campoEmail = findViewById(R.id.edtLoginEmailID);
-        campoSenha = findViewById(R.id.edtLoginSenhaID);
         btnLogin = findViewById(R.id.btnLoginEntrarID);
-        btnNewAccount = findViewById(R.id.btntLoginCadastroID);
+        campoSenha = findViewById(R.id.edtLoginSenhaID);
+        newAccount = findViewById(R.id.newAccountID);
+
+        campoSenha.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (campoSenha.getRight() - campoSenha.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        if (VISIBLE_PASSWORD[0]) {
+                            VISIBLE_PASSWORD[0] = false;
+                            campoSenha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                            campoSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility_off, 0);
+                        } else {
+                            VISIBLE_PASSWORD[0] = true;
+                            campoSenha.setInputType(InputType.TYPE_CLASS_TEXT);
+                            campoSenha.setCompoundDrawablesWithIntrinsicBounds( R.drawable.ic_baseline_lock_gray, 0, R.drawable.ic_baseline_visibility, 0);
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,20 +89,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        btnNewAccount.setOnClickListener(new View.OnClickListener() {
+        newAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, NewAccountActivity.class);
                 startActivity(intent);
             }
         });
-
-
     }
-
-
-
-
 
 
     public void validarLogin(){

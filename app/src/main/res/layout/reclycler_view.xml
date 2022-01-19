@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:showIn="@layout/activity_old_list">
+    tools:showIn="@layout/activity_item_lists">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

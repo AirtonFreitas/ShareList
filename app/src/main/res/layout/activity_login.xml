@@ -28,17 +28,19 @@
 
         <EditText
             android:id="@+id/edtLoginSenhaID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_lock_gray"
+            android:drawableRight="@drawable/ic_baseline_visibility_off"
             android:ems="10"
-            android:hint="senha"
+            android:hint=" senha"
             android:inputType="textPassword"
             android:paddingStart="10dp"
+            android:paddingRight="10dp"
             app:layout_constraintBottom_toTopOf="@+id/btnLoginEntrarID"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -59,7 +61,7 @@
 
         <EditText
             android:id="@+id/edtLoginEmailID"
-            android:layout_width="0dp"
+            android:layout_width="351dp"
             android:layout_height="@dimen/alt_edt"
             android:layout_marginStart="30dp"
             android:layout_marginTop="32dp"
@@ -67,7 +69,7 @@
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/ic_baseline_email_gray"
             android:ems="10"
-            android:hint="e-mail"
+            android:hint=" e-mail"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
@@ -79,7 +81,7 @@
 
         <Button
             android:id="@+id/btnLoginEntrarID"
-            android:layout_width="0dp"
+            android:layout_width="291dp"
             android:layout_height="@dimen/alt_btn"
             android:layout_marginStart="60dp"
             android:layout_marginTop="32dp"
@@ -87,26 +89,34 @@
             android:background="@drawable/rounded_btn_primary"
             android:text="Entrar"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/btntLoginCadastroID"
+            app:layout_constraintBottom_toTopOf="@+id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtLoginSenhaID" />
 
-        <Button
-            android:id="@+id/btntLoginCadastroID"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="60dp"
-            android:background="@drawable/rounded_btn_secondary"
-            android:text="Cadastro"
-            android:textColor="@color/primaryColor"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="4dp"
+            android:text="Não tem conta?"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/newAccountID"
+            app:layout_constraintTop_toBottomOf="@+id/btnLoginEntrarID" />
+
+        <TextView
+            android:id="@+id/newAccountID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:text="Crie agora"
+            android:textColor="@color/primaryColor"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLoginEntrarID" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

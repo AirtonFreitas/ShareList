@@ -16,7 +16,7 @@
             android:name=".activity.GoMarketActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.CustomListActivity"
+            android:name=".activity.EasyListActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ItemsActivity"

@@ -2,7 +2,6 @@ package com.iasoftwares.sharelist.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CustomList() {
-        Intent intent = new Intent(MainActivity.this, CustomListActivity.class);
+        Intent intent = new Intent(MainActivity.this, EasyListActivity.class);
         startActivity(intent);
     }
 
