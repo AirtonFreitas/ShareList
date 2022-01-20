@@ -54,18 +54,18 @@
 
         <LinearLayout
             android:id="@+id/square_one"
-            android:layout_width="206dp"
+            android:layout_width="0dp"
             android:layout_height="@android:dimen/thumbnail_width"
             android:layout_marginTop="32dp"
             android:layout_weight="1"
             android:gravity="center|center_horizontal"
+            android:onClick="NewList"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/square_three"
             app:layout_constraintEnd_toStartOf="@+id/square_two"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:onClick="NewList">
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <ImageView
                 android:layout_width="80dp"

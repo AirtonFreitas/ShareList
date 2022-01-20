@@ -13,4 +13,13 @@
     <color name="secondaryColor">#80deea</color>
     <color name="secondaryLightColor">#b4ffff</color>
     <color name="secondaryDarkColor">#4bacb8</color>
+
+    <color name="list_one">#B8F7FF</color>
+    <color name="list_two">#B8C1FF</color>
+    <color name="list_three">#D9B8FF</color>
+    <color name="list_four">#FFB8B8</color>
+    <color name="list_five">#D3FFB8</color>
+    <color name="list_six">#FFE5B8</color>
+
+
 </resources>
