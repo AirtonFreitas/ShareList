@@ -54,10 +54,9 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapterMovimentacao);
-        ;
+
         Intent intent = getIntent();
         String recebida = intent.getStringExtra("chosenList");
-        //Toast.makeText(this, "A lista selecionada é a : "+ recebida, Toast.LENGTH_LONG).show();
         recuperarItens(recebida);
     }
 
@@ -81,7 +80,6 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 adapterMovimentacao.notifyItemRemoved(position);
             }
         });
-
         alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -96,12 +94,9 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     }
 
     private void recuperarItens(String recebida) {
-
-
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child(recebida);
-        //Toast.makeText(this, "O valor de movimentacaoRef é : "+movimentacaoRef.getKey(), Toast.LENGTH_LONG).show();
+        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child("Lista de Compras");
         valueEventListenerLista = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -138,8 +133,8 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     @Override
     public void EditarItem(int position) {
 
-        openDialogEdit();
-        editItem(position);
+        openDialogEdit(position);
+        //editItem(position);
     }
 
     @Override
@@ -147,26 +142,25 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
 
     }
 
-    private void openDialogEdit() {
+    private void openDialogEdit(int position) {
         DialogEditItem dialogEditItem = new DialogEditItem();
+        dialogEditItem.pos = position;
         dialogEditItem.show(getSupportFragmentManager(), "Dialog");
     }
 
     @Override
-    public void appyText(String newDescription, int newQtd) {
-        }
-
-    public void editItem(int position) {
-        prodLista = produtos.get(position);
+    public void applyText(String newDescription, String newQtd, int pos) {
+        prodLista = produtos.get(pos);
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
         movimentacaoRef = firebaseRef.child("Listas")
                 .child(idUsuario)
                 .child(prodLista.getNomeLista());
+        movimentacaoRef.child(prodLista.getKey()).child("descricao").setValue(newDescription);
+        movimentacaoRef.child(prodLista.getKey()).child("quantidade").setValue(newQtd);
 
-        movimentacaoRef.child(prodLista.getKey()).child("descricao").setValue("textDescrp.getText().toString()");
-        movimentacaoRef.child(prodLista.getKey()).child("quantidade").setValue("textQtd.getText().toString()");
-    }
+
+        }
 
 }

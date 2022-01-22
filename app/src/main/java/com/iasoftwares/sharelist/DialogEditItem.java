@@ -21,6 +21,7 @@ public class DialogEditItem extends AppCompatDialogFragment {
     private EditText edtTextDesc;
     private EditText edtTextQtd;
     private DialogEditItem.DialogListener listener;
+    public int pos = -1;
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -43,12 +44,13 @@ public class DialogEditItem extends AppCompatDialogFragment {
                         edtTextDesc = view.findViewById(R.id.editNewDescription);
                         edtTextQtd = view.findViewById(R.id.editNewQtd);
                         String descriptionNewText = edtTextDesc.getText().toString();
-                        String qtdString = edtTextQtd.getText().toString();
+                        String qtdNewQtdString = edtTextQtd.getText().toString();
+
 
                         if(!descriptionNewText.isEmpty()){
-                            if(!qtdString.isEmpty()){
-                                int qtdNewText = Integer.parseInt(qtdString);
-                                listener.appyText(descriptionNewText, qtdNewText);
+                            if(!qtdNewQtdString.isEmpty()){
+                                int qtdNewQtd = Integer.parseInt(qtdNewQtdString);
+                                listener.applyText(descriptionNewText, qtdNewQtdString, pos);
 
                             }else{
                                 Toast.makeText(getContext(),"Quantidade Vazia, Item não editado", Toast.LENGTH_LONG).show();
@@ -72,6 +74,6 @@ public class DialogEditItem extends AppCompatDialogFragment {
     }
 
     public interface DialogListener{
-        void appyText(String newDescription, int newQtd);
+        void applyText(String newDescription, String newQtd, int pos);
     }
 }

@@ -7,14 +7,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
@@ -29,11 +34,9 @@ public class EasyListActivity extends AppCompatActivity {
     private ProdutosLista prodLista;
     private List produtos = new ArrayList<>();
     private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
-    private DatabaseReference movimentacaoRef;
+    private DatabaseReference fromPath, toPath;
     private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
-
-
-
+    private ValueEventListener valueEventListener;
 
 
     @Override
@@ -42,9 +45,6 @@ public class EasyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_easy_list);
         bntBack = findViewById(R.id.btnBackID);
         list1 = findViewById(R.id.linearLayout1);
-
-
-
         bntBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +55,7 @@ public class EasyListActivity extends AppCompatActivity {
         });
     }
 
-    public void copyList(String chosenList){
+    public void copyList(DatabaseReference fromPath, final DatabaseReference toPath, String chosenList) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Copiar Lista");
         alertDialog.setIcon(R.drawable.ic_baseline_delete);
@@ -65,92 +65,88 @@ public class EasyListActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-switch (chosenList){
-    case "Lista Básica":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 1" + chosenList, Toast.LENGTH_SHORT).show();
-        FirebaseAuth autentic = SettingsFirebase.getFirebaseAutenticacao();
-        String idUsuario = Base64Custom.codificarBase64(autentic.getCurrentUser().getEmail());
+                valueEventListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
-        movimentacaoRef = firebaseRef.child("Listas")
-                .child(idUsuario)
-                .child(chosenList).push().setValue(firebaseRef.child("Listas")
-                        .child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg=="));
+                        toPath.setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isComplete()) {
+                                    Toast.makeText(EasyListActivity.this, "copiado", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(EasyListActivity.this, "não copiado", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
 
-
-
-
-
-
-
-
-        break;
-    case "Lista Gourmet":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 2" + chosenList, Toast.LENGTH_SHORT).show();
-        break;
-    case "Limpeza":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 3" + chosenList, Toast.LENGTH_SHORT).show();
-        break;
-    case "Churrasco":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 4" + chosenList, Toast.LENGTH_SHORT).show();
-        break;
-    case "Hortifruti":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 5" + chosenList, Toast.LENGTH_SHORT).show();
-        break;
-    case "Vegana":
-        Toast.makeText(EasyListActivity.this, "CÓDIGO CAIXA 6" + chosenList, Toast.LENGTH_SHORT).show();
-        break;
-
-}
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                };
+                fromPath.addListenerForSingleValueEvent(valueEventListener);
             }
         });
 
-        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog alert = alertDialog.create();
+                alert.show();
 
             }
-        });
-        AlertDialog alert = alertDialog.create();
-        alert.show();
 
-    }
+            public void selectList(View linearLayout) {
+                String tag = linearLayout.getTag().toString();
+                FirebaseAuth autentic = SettingsFirebase.getFirebaseAutenticacao();
+                String idUsuario = Base64Custom.codificarBase64(autentic.getCurrentUser().getEmail());
+                String chosenList = "aaa";
+                switch (tag) {
+                    case "0":
+                        Toast.makeText(EasyListActivity.this, "1° quadro", Toast.LENGTH_SHORT).show();
+                        toPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Lista Básica");
+                        fromPath = firebaseRef.child("listas").child(idUsuario).child("Lista Básica");
+                        chosenList = "Lista Básica";
+                        break;
+                    case "1":
+                        Toast.makeText(EasyListActivity.this, "2° quadro", Toast.LENGTH_SHORT).show();
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Lista Gourmet");
+                        toPath = firebaseRef.child("listas").child(idUsuario).child("Lista Gourmet");
+                        chosenList = "Lista Gourmet";
+                        break;
+                    case "2":
+                        Toast.makeText(EasyListActivity.this, "3° quadro", Toast.LENGTH_SHORT).show();
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Limpeza");
+                        toPath = firebaseRef.child("listas").child(idUsuario).child("Limpeza");
+                        chosenList = "Limpeza";
+                        break;
+                    case "3":
+                        Toast.makeText(EasyListActivity.this, "4° quadro", Toast.LENGTH_SHORT).show();
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Churrasco");
+                        toPath = firebaseRef.child("listas").child(idUsuario).child("Churrasco");
+                        chosenList = "Churrasco";
+                        break;
+                    case "4":
+                        Toast.makeText(EasyListActivity.this, "5° quadro", Toast.LENGTH_SHORT).show();
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Hortifruti");
+                        toPath = firebaseRef.child("listas").child(idUsuario).child("Hortifruti");
+                        chosenList = "Hortifruti";
+                        break;
+                    case "5":
+                        Toast.makeText(EasyListActivity.this, "6° quadro", Toast.LENGTH_SHORT).show();
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Vegana");
+                        toPath = firebaseRef.child("listas").child(idUsuario).child("Vegana");
+                        chosenList = "Vegana";
+                        break;
+                    default:
+                        Toast.makeText(EasyListActivity.this, "nenhum ", Toast.LENGTH_SHORT).show();
+                }
 
-    public void selectList(View linearLayout) {
-        String tag = linearLayout.getTag().toString();
-        switch (tag){
-            case "0":
-                Toast.makeText(EasyListActivity.this, "0° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Lista Básica");;
-                break;
-            case "1":
-                Toast.makeText(EasyListActivity.this, "1° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Lista Gourmet");
-                break;
-            case "2":
-                Toast.makeText(EasyListActivity.this, "2° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Limpeza");
-                break;
-            case "3":
-                Toast.makeText(EasyListActivity.this, "3° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Churrasco");
-                break;
-            case "4":
-                Toast.makeText(EasyListActivity.this, "4° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Hortifruti");
-                break;
-            case "5":
-                Toast.makeText(EasyListActivity.this, "4° quadro", Toast.LENGTH_SHORT).show();
-                copyList("Vegana");
+                copyList(fromPath, toPath, chosenList);
 
-
-                break;
-            default:
-                Toast.makeText(EasyListActivity.this, "nenhum ", Toast.LENGTH_SHORT).show();
-
-
+            }
         }
-
-
-
-    }
-}
