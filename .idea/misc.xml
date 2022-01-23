@@ -13,6 +13,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_person_gray.xml" value="0.3" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_visibility.xml" value="0.1" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_visibility_off.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15462962962962962" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_primary.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_second.xml" value="0.21574074074074073" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/rounded_btn_secondary.xml" value="0.37864583333333335" />
@@ -52,6 +53,8 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view_list.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/roundshape4_selector.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/text_input_password.xml" value="0.3605128205128205" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37037037037037035" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15462962962962962" />
         <entry key="..\:/Users/Admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.35" />
         <entry key="..\:/Users/Admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.35" />
       </map>

@@ -36,11 +36,11 @@
             app:srcCompat="@drawable/logo" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/nameListTitlle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="Churrasco Final de semana"
+            android:text="Nome da Lista"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/recyclerProdutosID"

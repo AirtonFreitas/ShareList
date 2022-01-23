@@ -37,17 +37,14 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
     private DatabaseReference movimentacaoRef;
     private ValueEventListener valueEventListenerLista;
-    private TextView textDescrp, textQtd, textViewPos;
+    private TextView nameList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_lists);
         recyclerView = findViewById(R.id.recyclerProdutosID);
-        textDescrp = findViewById(R.id.textViewDescr);
-        textQtd = findViewById(R.id.textViewQuant);
-        textViewPos = findViewById(R.id.textViewPosition);
-
+        nameList = findViewById(R.id.nameListTitlle);
         adapterMovimentacao = new AdapterMovimentacao(produtos, this, this);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -58,6 +55,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         Intent intent = getIntent();
         String recebida = intent.getStringExtra("chosenList");
         recuperarItens(recebida);
+        nameList.setText(recebida);
     }
 
     public void deleteItem(int position) {
@@ -96,7 +94,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     private void recuperarItens(String recebida) {
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child("Lista de Compras");
+        movimentacaoRef = firebaseRef.child("Listas").child(idUsuario).child(recebida);
         valueEventListenerLista = movimentacaoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -117,6 +115,8 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     @Override
     protected void onStart() {
         super.onStart();
+
+
     }
 
     @Override
@@ -134,7 +134,6 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     public void EditarItem(int position) {
 
         openDialogEdit(position);
-        //editItem(position);
     }
 
     @Override

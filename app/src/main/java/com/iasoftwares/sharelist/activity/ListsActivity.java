@@ -115,25 +115,15 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
 
     private void openList(int position) {
         prodLista = (ProdutosLista) produtos.get(position);
-
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
 
         movimentacaoRef = firebaseRef.child("Listas")
                 .child(idUsuario).child(prodLista.getKey());
-
-        String listSelected = movimentacaoRef.toString();
-        listSelected.substring(20);
-
-        Toast.makeText(this, "A lista selecionada é a : " + listSelected, Toast.LENGTH_LONG).show();
-
-
-        /*Intent intent = new Intent(this, ItemsActivity.class);
-        intent.putExtra("chosenList", (Parcelable) movimentacaoRef);
+        String listSelected = movimentacaoRef.getKey();
+        Intent intent = new Intent(this, ItemsActivity.class);
+        intent.putExtra("chosenList", listSelected);
         startActivity(intent);
-        finishAffinity();*/
-
-
     }
 
 

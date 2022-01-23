@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OldLists() {
-        Intent intent = new Intent(MainActivity.this, ItemsActivity.class);
+        Intent intent = new Intent(MainActivity.this, ListsActivity.class);
         startActivity(intent);
     }
 
