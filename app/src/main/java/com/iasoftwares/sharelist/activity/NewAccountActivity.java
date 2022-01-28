@@ -28,7 +28,7 @@ import com.iasoftwares.sharelist.model.Usuario;
 
 public class NewAccountActivity extends AppCompatActivity {
     private EditText campoNome, campoEmail, campoSenha, campoConfirmaSenha;
-    private Button botaoCadastrar, botaoLogin;
+    private Button botaoCadastrar;
     private FirebaseAuth autenticacao;
     private Usuario usuario;
     private TextView textLogin;

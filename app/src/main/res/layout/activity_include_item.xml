@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.IncludeItemActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Novo Item"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNameList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/descricaoItemID"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/alt_edt"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="Descrição"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerCateg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameList" />
+
+    <Spinner
+        android:id="@+id/spinnerCateg"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/alt_edt"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:paddingStart="10sp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/observacaoItemID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoItemID" />
+
+    <Button
+        android:id="@+id/btnSaveID"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/alt_btn"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/rounded_btn_primary"
+        android:text="Gravar Item"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quantidadeItemID" />
+
+    <EditText
+        android:id="@+id/observacaoItemID"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/alt_edt"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="Observação"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/quantidadeItemID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCateg" />
+
+    <TextView
+        android:id="@+id/textViewNameList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Lista de Compras"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/descricaoItemID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btnBackID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/rounded_btn_secondary"
+        android:padding="10dp"
+        android:text="Finalizar Lista"
+        android:textColor="@color/primaryColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaveID" />
+
+    <EditText
+        android:id="@+id/quantidadeItemID"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/alt_edt"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="Quantidade"
+        android:inputType="number"
+        android:paddingStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveID"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerUN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observacaoItemID" />
+
+    <Spinner
+        android:id="@+id/spinnerUN"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/observacaoItemID" />
+</androidx.constraintlayout.widget.ConstraintLayout>

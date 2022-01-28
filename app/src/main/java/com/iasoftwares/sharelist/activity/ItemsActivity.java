@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +41,9 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     private DatabaseReference movimentacaoRef;
     private ValueEventListener valueEventListenerLista;
     private TextView nameList;
+    private FloatingActionButton fabItems;
+    private Button btnVoltarItems;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,10 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         setContentView(R.layout.activity_item_lists);
         recyclerView = findViewById(R.id.recyclerProdutosID);
         nameList = findViewById(R.id.nameListTitlle);
+        fabItems = findViewById(R.id.fabItems);
+        btnVoltarItems = findViewById(R.id.btnBackItemsID);
+
+
         adapterMovimentacao = new AdapterMovimentacao(produtos, this, this);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -56,6 +66,27 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         String recebida = intent.getStringExtra("chosenList");
         recuperarItens(recebida);
         nameList.setText(recebida);
+
+        fabItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ItemsActivity.this, IncludeItemActivity.class);
+                intent.putExtra("List", recebida);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnVoltarItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ItemsActivity.this, ListsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
     public void deleteItem(int position) {
@@ -106,6 +137,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 }
                 adapterMovimentacao.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
@@ -160,6 +192,6 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         movimentacaoRef.child(prodLista.getKey()).child("quantidade").setValue(newQtd);
 
 
-        }
+    }
 
 }

@@ -12,11 +12,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iasoftwares.sharelist.DialogQuestionNameList;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.model.ProdutosLista;
 
-public class RegisterItemsActivity extends AppCompatActivity implements DialogQuestionNameList.DialogListener {
+public class IncludeItemActivity extends AppCompatActivity {
     private Spinner spinnerCategories, spinnerUN;
     private EditText descricao, observacao, quantidade;
     private ProdutosLista produtosLista;
@@ -26,7 +25,7 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_items);
+        setContentView(R.layout.activity_include_item);
         spinnerCategories = findViewById(R.id.spinnerCateg);
         spinnerUN = findViewById(R.id.spinnerUN);
         descricao = findViewById(R.id.descricaoItemID);
@@ -35,11 +34,12 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         btnSave = findViewById(R.id.btnSaveID);
         btnBack = findViewById(R.id.btnBackID);
         textViewNameList = findViewById(R.id.textViewNameList);
-        openDialog();
-
-
         AtivarSpinnerCateg();
         AtivarSpinnerUn();
+
+        Intent intent = getIntent();
+        String recebida = intent.getStringExtra("List");
+        textViewNameList.setText(recebida);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,9 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterItemsActivity.this, ListsActivity.class);
+                Intent intent = new Intent(IncludeItemActivity.this, ItemsActivity.class);
+                String listSelected = textViewNameList.getText().toString();
+                intent.putExtra("chosenList", listSelected);
                 startActivity(intent);
                 finish();
             }
@@ -63,7 +65,7 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         String textDescricao = descricao.getText().toString();
         if (!textDescricao.isEmpty()) {
             salvarLista();
-            Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(IncludeItemActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
             descricao.setText("");
             observacao.setText("");
             quantidade.setText("");
@@ -87,12 +89,6 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         spinnerUnid.setAdapter(adapter);
     }
 
-    private void openDialog() {
-        DialogQuestionNameList dialogQuestionNameList = new DialogQuestionNameList();
-        dialogQuestionNameList.show(getSupportFragmentManager(), "Dialog");
-
-    }
-
     private void AtivarSpinnerCateg() {
         String[] arraySpinner = new String[]{
                 "Escolha a Categoria", "Alimentos", "Bebidas", "Bebidas Alcoólicas", "Congelados e frios", "Higiene Pessoal", "Hortifruti", "Padaria", "Produtos de Limpeza", "Outros"
@@ -114,10 +110,5 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         produtosLista.setQuantidade(quantidade.getText().toString());
         produtosLista.setStatus("N");
         produtosLista.salvar();
-    }
-
-    @Override
-    public void appyText(String nameList) {
-        textViewNameList.setText(nameList);
     }
 }

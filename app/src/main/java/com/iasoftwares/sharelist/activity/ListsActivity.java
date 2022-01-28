@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.adapter.AdapterList;
-import com.iasoftwares.sharelist.adapter.AdapterMovimentacao;
 import com.iasoftwares.sharelist.adapter.OnClick;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
@@ -38,6 +38,8 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
     private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
     private DatabaseReference movimentacaoRef;
     private ValueEventListener valueEventListenerLista;
+    private FloatingActionButton fabList;
+    private Button btnVoltarList;
 
 
     @Override
@@ -46,6 +48,25 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
         setContentView(R.layout.activity_lists);
         recyclerView = findViewById(R.id.recyclerListasID);
         adapterList = new AdapterList(produtos, this, this);
+        fabList = findViewById(R.id.fabList);
+        btnVoltarList = findViewById(R.id.btnBackListID);
+
+        fabList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListsActivity.this, RegisterItemsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+       btnVoltarList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListsActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }
@@ -79,6 +100,7 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
         });
 
     }
+
     public void deleteList(int position) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Excluir Lista?");
@@ -151,7 +173,7 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
 
     @Override
     public void EscolheLista(int position) {
-openList(position);
+        openList(position);
     }
 
 

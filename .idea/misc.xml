@@ -7,6 +7,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/background_screens.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_add.xml" value="0.3635" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_alternate_email_gray.xml" value="0.21481481481481482" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_delete_forever.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.37864583333333335" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_easy_list.xml" value="0.3569230769230769" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_go_market.xml" value="0.35208333333333336" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_include_item.xml" value="0.34601449275362317" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_item_lists.xml" value="0.3569230769230769" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_lists.xml" value="0.35" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_login.xml" value="0.33" />

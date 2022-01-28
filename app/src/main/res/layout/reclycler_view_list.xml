@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".activity.ListsActivity">
+        android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerListasID"
@@ -19,8 +18,9 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:elevation="3dp"
-            app:layout_constraintBottom_toTopOf="@+id/btnBacksID"
+            app:layout_constraintBottom_toTopOf="@+id/btnBackItemsID"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -46,20 +46,31 @@
             app:layout_constraintStart_toEndOf="@+id/imageView3"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_baseline_add"
+            app:backgroundTint="@color/primaryColor"
+            app:layout_constraintBottom_toTopOf="@+id/btnBackListID"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <Button
-            android:id="@+id/btnBacksID"
+            android:id="@+id/btnBackListID"
             android:layout_width="0dp"
             android:layout_height="@dimen/alt_btn"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_btn_secondary"
+            android:background="@drawable/rounded_btn_primary"
             android:padding="10dp"
-            android:textColor="@color/primaryColor"
+            android:text="Voltar"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Voltar" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
