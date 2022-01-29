@@ -10,20 +10,18 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DatabaseReference;
 import com.iasoftwares.sharelist.R;
-import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.model.ProdutosLista;
 
 import java.util.List;
 
-public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentacao.MyViewHolder> {
+public class AdapterItems extends RecyclerView.Adapter<AdapterItems.MyViewHolder> {
 
     List<ProdutosLista> movimentacoes;
     OnClick onClick;
     Context context;
 
-    public AdapterMovimentacao(List<ProdutosLista> movimentacoes, Context context, OnClick onClick) {
+    public AdapterItems(List<ProdutosLista> movimentacoes, Context context, OnClick onClick) {
         this.movimentacoes = movimentacoes;
         this.context = context;
         this.onClick = onClick;
@@ -31,7 +29,7 @@ public class AdapterMovimentacao extends RecyclerView.Adapter<AdapterMovimentaca
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_movimentacao, parent, false);
+        View itemLista = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_products, parent, false);
         return new MyViewHolder(itemLista);
     }
 

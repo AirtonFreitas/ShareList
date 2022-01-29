@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.DialogEditItem;
 import com.iasoftwares.sharelist.R;
-import com.iasoftwares.sharelist.adapter.AdapterMovimentacao;
+import com.iasoftwares.sharelist.adapter.AdapterItems;
 import com.iasoftwares.sharelist.adapter.OnClick;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
@@ -33,7 +33,7 @@ import java.util.List;
 
 public class ItemsActivity extends AppCompatActivity implements OnClick, DialogEditItem.DialogListener {
     private RecyclerView recyclerView;
-    private AdapterMovimentacao adapterMovimentacao;
+    private AdapterItems adapterItems;
     private List<ProdutosLista> produtos = new ArrayList<>();
     private ProdutosLista prodLista;
     private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
@@ -55,12 +55,12 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         btnVoltarItems = findViewById(R.id.btnBackItemsID);
 
 
-        adapterMovimentacao = new AdapterMovimentacao(produtos, this, this);
+        adapterItems = new AdapterItems(produtos, this, this);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapterMovimentacao);
+        recyclerView.setAdapter(adapterItems);
 
         Intent intent = getIntent();
         String recebida = intent.getStringExtra("chosenList");
@@ -92,7 +92,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     public void deleteItem(int position) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Excluir Produto da Lista?");
-        alertDialog.setIcon(R.drawable.ic_baseline_delete);
+        alertDialog.setIcon(R.drawable.ic_baseline_delete_forever_gray);
         alertDialog.setMessage("Você tem certeza que deseja excluir esse produto da sua lista?");
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
@@ -106,7 +106,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                         .child(idUsuario)
                         .child(prodLista.getNomeLista());
                 movimentacaoRef.child(prodLista.getKey()).removeValue();
-                adapterMovimentacao.notifyItemRemoved(position);
+                adapterItems.notifyItemRemoved(position);
             }
         });
         alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -115,7 +115,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                 Toast.makeText(ItemsActivity.this,
                         "Cancelado",
                         Toast.LENGTH_SHORT).show();
-                adapterMovimentacao.notifyDataSetChanged();
+                adapterItems.notifyDataSetChanged();
             }
         });
         AlertDialog alert = alertDialog.create();
@@ -135,7 +135,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
                     prodLista.setKey(dados.getKey());
                     produtos.add(prodLista);
                 }
-                adapterMovimentacao.notifyDataSetChanged();
+                adapterItems.notifyDataSetChanged();
             }
 
             @Override

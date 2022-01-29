@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.GoMarketActivity">
+    tools:context=".activity.GoMarketListActivity">
+
+    <include layout="@layout/recycler_view_market"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

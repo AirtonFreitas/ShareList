@@ -13,56 +13,44 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
-import com.iasoftwares.sharelist.adapter.AdapterList;
+import com.iasoftwares.sharelist.adapter.AdapterListMarket;
 import com.iasoftwares.sharelist.adapter.OnClick;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
 import com.iasoftwares.sharelist.model.ProdutosLista;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListsActivity extends AppCompatActivity implements OnClick {
-    private RecyclerView recyclerView;
-    private AdapterList adapterList;
+public class GoMarketListActivity extends AppCompatActivity implements OnClick {
+    private RecyclerView recyclerViewMarket;
+    private AdapterListMarket adapterListMarket;
     private List produtos = new ArrayList<>();
     private ProdutosLista prodLista;
     private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
     private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
     private DatabaseReference movimentacaoRef;
     private ValueEventListener valueEventListenerLista;
-    private FloatingActionButton fabList;
     private Button btnVoltarList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lists);
-        recyclerView = findViewById(R.id.recyclerListasID);
-        adapterList = new AdapterList(produtos, this, this);
-        fabList = findViewById(R.id.fabList);
+        setContentView(R.layout.activity_go_market);
+        recyclerViewMarket = findViewById(R.id.recyclerListasMarketID);
+        adapterListMarket = new AdapterListMarket(produtos, this, this);
         btnVoltarList = findViewById(R.id.btnBackListID);
 
-        fabList.setOnClickListener(new View.OnClickListener() {
+        btnVoltarList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListsActivity.this, RegisterItemsActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-       btnVoltarList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ListsActivity.this, MainActivity.class);
+                Intent intent = new Intent(GoMarketListActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -71,11 +59,11 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
 
     }
 
-    private void recuperarListas() {
+    private void recuperarListasMarket() {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapterList);
+        recyclerViewMarket.setLayoutManager(layoutManager);
+        recyclerViewMarket.setHasFixedSize(true);
+        recyclerViewMarket.setAdapter(adapterListMarket);
 
         String emailUsuario = autenticacao.getCurrentUser().getEmail();
         String idUsuario = Base64Custom.codificarBase64(emailUsuario);
@@ -90,7 +78,7 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
                     prodLista.setKey(dados.getKey());
                     produtos.add(prodLista);
                 }
-                adapterList.notifyDataSetChanged();
+                adapterListMarket.notifyDataSetChanged();
             }
 
             @Override
@@ -99,6 +87,19 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
             }
         });
 
+    }
+
+    private void openList(int position) {
+        prodLista = (ProdutosLista) produtos.get(position);
+        String emailUsuario = autenticacao.getCurrentUser().getEmail();
+        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
+
+        movimentacaoRef = firebaseRef.child("Listas")
+                .child(idUsuario).child(prodLista.getKey());
+        String listSelected = movimentacaoRef.getKey();
+        Intent intent = new Intent(this, GoMarketItemsActivity.class);
+        intent.putExtra("chosenList", listSelected);
+        startActivity(intent);
     }
 
     public void deleteList(int position) {
@@ -118,41 +119,29 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
                 movimentacaoRef = firebaseRef.child("Listas")
                         .child(idUsuario);
                 movimentacaoRef.child(prodLista.getKey()).removeValue();
-                adapterList.notifyItemRemoved(position);
+                adapterListMarket.notifyItemRemoved(position);
             }
         });
 
         alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(ListsActivity.this,
+                Toast.makeText(GoMarketListActivity.this,
                         "Cancelado",
                         Toast.LENGTH_SHORT).show();
-                adapterList.notifyDataSetChanged();
+                adapterListMarket.notifyDataSetChanged();
             }
         });
         AlertDialog alert = alertDialog.create();
         alert.show();
     }
 
-    private void openList(int position) {
-        prodLista = (ProdutosLista) produtos.get(position);
-        String emailUsuario = autenticacao.getCurrentUser().getEmail();
-        String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-
-        movimentacaoRef = firebaseRef.child("Listas")
-                .child(idUsuario).child(prodLista.getKey());
-        String listSelected = movimentacaoRef.getKey();
-        Intent intent = new Intent(this, ItemsActivity.class);
-        intent.putExtra("chosenList", listSelected);
-        startActivity(intent);
-    }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        recuperarListas();
+        recuperarListasMarket();
     }
 
     @Override
@@ -163,7 +152,7 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
 
     @Override
     public void DeletaItem(int position) {
-        deleteList(position);
+deleteList(position);
     }
 
     @Override
@@ -173,8 +162,6 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
 
     @Override
     public void EscolheLista(int position) {
-        openList(position);
+openList(position);
     }
-
-
 }

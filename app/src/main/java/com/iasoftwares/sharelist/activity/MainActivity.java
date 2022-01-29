@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
-import com.iasoftwares.sharelist.model.ProdutosLista;
 import com.iasoftwares.sharelist.model.Usuario;
 
 public class MainActivity extends AppCompatActivity {
@@ -107,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GoMarket() {
-        Intent intent = new Intent(MainActivity.this, GoMarketActivity.class);
+        Intent intent = new Intent(MainActivity.this, GoMarketListActivity.class);
         startActivity(intent);
     }
 

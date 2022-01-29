@@ -9,7 +9,11 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/background_screens.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_add.xml" value="0.3635" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_alternate_email_gray.xml" value="0.21481481481481482" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_check.xml" value="0.347" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_check_box.xml" value="0.347" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_check_box_outline_blank.xml" value="0.347" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_delete_forever.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_done_all.xml" value="0.347" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_edit.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_person_gray.xml" value="0.3" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/drawable/ic_baseline_visibility.xml" value="0.1" />
@@ -37,6 +41,7 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_easy_list.xml" value="0.3569230769230769" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_go_market.xml" value="0.35208333333333336" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_go_market_items.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_include_item.xml" value="0.34601449275362317" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_item_lists.xml" value="0.3569230769230769" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_lists.xml" value="0.35" />
@@ -48,12 +53,17 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_register_items.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/activity_splash.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_list.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_market.xml" value="0.3625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_market_list.xml" value="0.3625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_market_products.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_movimentacao.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/adapter_products.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/layout_dialog_edit_item.xml" value="0.32222222222222224" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/nome_list.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view.xml" value="0.23876404494382023" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/reclycler_view_list.xml" value="0.33" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/recycler_view_market.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/roundshape4_selector.xml" value="0.3625" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/layout/text_input_password.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/ShareList/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.37037037037037035" />
