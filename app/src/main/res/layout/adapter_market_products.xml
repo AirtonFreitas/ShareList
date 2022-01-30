@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="6dp"
+    app:cardUseCompatPadding="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <CheckBox
+                android:id="@+id/checked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                />
+
+            <TextView
+                android:id="@+id/textAdapterDescricao"
+                android:layout_width="248dp"
+                android:layout_height="48dp"
+                android:layout_weight="5"
+                android:paddingStart="15dp"
+                android:text="Descrição"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="bottom"/>
+
+            <TextView
+                android:id="@+id/textAdapterQuantidade"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|bottom"
+                android:text="123"
+                android:layout_gravity="bottom|center_horizontal"
+                android:paddingEnd="10dp"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/deleteID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_baseline_delete_forever" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textAdapterCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Escolha a Categoria"
+                android:textSize="14sp"
+                android:paddingStart="50dp"/>
+
+            <TextView
+                android:id="@+id/textAdapterObservacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Observação"
+                android:textSize="14sp"
+                android:paddingEnd="80dp"
+                android:paddingBottom="3dp"
+                android:textAlignment="textEnd"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -91,7 +91,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
 
     public void deleteItem(int position) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Excluir Produto da Lista?");
+        alertDialog.setTitle("Excluir item?");
         alertDialog.setIcon(R.drawable.ic_baseline_delete_forever_gray);
         alertDialog.setMessage("Você tem certeza que deseja excluir esse produto da sua lista?");
         alertDialog.setCancelable(false);
