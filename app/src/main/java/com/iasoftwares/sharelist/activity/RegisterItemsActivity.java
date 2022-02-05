@@ -63,7 +63,7 @@ public class RegisterItemsActivity extends AppCompatActivity implements DialogQu
         String textDescricao = descricao.getText().toString();
         if (!textDescricao.isEmpty()) {
             salvarLista();
-            Toast.makeText(RegisterItemsActivity.this, "Item Gravado com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegisterItemsActivity.this, "Item gravado com sucesso", Toast.LENGTH_SHORT).show();
             descricao.setText("");
             observacao.setText("");
             quantidade.setText("");

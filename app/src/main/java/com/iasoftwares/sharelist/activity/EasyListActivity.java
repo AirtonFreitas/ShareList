@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,7 +59,7 @@ public class EasyListActivity extends AppCompatActivity {
     public void copyList(DatabaseReference fromPath, final DatabaseReference toPath, String chosenList) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Copiar Lista");
-        alertDialog.setIcon(R.drawable.ic_baseline_delete);
+        alertDialog.setIcon(R.drawable.ic_baseline_folder_copy);
         alertDialog.setMessage("Você tem certeza que deseja copiar a lista de " + chosenList + " ?");
         alertDialog.setCancelable(false);
         alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
@@ -114,7 +115,7 @@ public class EasyListActivity extends AppCompatActivity {
                         break;
                     case "1":
                         Toast.makeText(EasyListActivity.this, "2° quadro", Toast.LENGTH_SHORT).show();
-                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Lista Gourmet");
+                        fromPath = firebaseRef.child("listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Lista Gourmet" );
                         toPath = firebaseRef.child("listas").child(idUsuario).child("Lista Gourmet");
                         chosenList = "Lista Gourmet";
                         break;

@@ -35,8 +35,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/logo"
             app:layout_constraintBottom_toTopOf="@+id/edtNewAccountNomeID"

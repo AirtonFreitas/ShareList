@@ -176,5 +176,15 @@ public class ListsActivity extends AppCompatActivity implements OnClick {
         openList(position);
     }
 
+    @Override
+    public void desmarcaItem(int position) {
+
+    }
+
+    @Override
+    public void marcaItem(int position) {
+
+    }
+
 
 }

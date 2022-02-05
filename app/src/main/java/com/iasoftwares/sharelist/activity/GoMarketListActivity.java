@@ -164,4 +164,10 @@ deleteList(position);
     public void EscolheLista(int position) {
 openList(position);
     }
+
+    @Override
+    public void desmarcaItem(int position) {}
+
+    @Override
+    public void marcaItem(int position) {}
 }

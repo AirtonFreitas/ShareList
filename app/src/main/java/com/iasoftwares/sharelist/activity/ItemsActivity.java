@@ -42,7 +42,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     private ValueEventListener valueEventListenerLista;
     private TextView nameList;
     private FloatingActionButton fabItems;
-    private Button btnVoltarItems;
+    private Button btnVoltarItems, btnFinish;
 
 
     @Override
@@ -53,6 +53,7 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
         nameList = findViewById(R.id.nameListTitlle);
         fabItems = findViewById(R.id.fabItems);
         btnVoltarItems = findViewById(R.id.btnBackItemsID);
+        btnFinish = findViewById(R.id.btnFinalizarID);
 
 
         adapterItems = new AdapterItems(produtos, this, this);
@@ -86,6 +87,14 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
             }
         });
 
+        btnFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ItemsActivity.this, MainActivity.class);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
 
     }
 
@@ -172,6 +181,12 @@ public class ItemsActivity extends AppCompatActivity implements OnClick, DialogE
     public void EscolheLista(int position) {
 
     }
+
+    @Override
+    public void desmarcaItem(int position) {}
+
+    @Override
+    public void marcaItem(int position) {}
 
     private void openDialogEdit(int position) {
         DialogEditItem dialogEditItem = new DialogEditItem();
