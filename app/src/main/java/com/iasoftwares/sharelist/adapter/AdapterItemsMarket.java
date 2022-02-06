@@ -40,6 +40,7 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
     public void onBindViewHolder(MyViewHolder holder, @SuppressLint("RecyclerView") int pos) {
         ProdutosLista movimentacao = movimentacoes.get(pos);
 
+
         holder.descricao.setText(movimentacao.getDescricao());
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());

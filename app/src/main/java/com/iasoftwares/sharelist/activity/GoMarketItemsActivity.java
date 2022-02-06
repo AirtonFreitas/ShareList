@@ -117,7 +117,6 @@ public class GoMarketItemsActivity extends AppCompatActivity implements OnClick 
                 }
                 adapterItemsMarket.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
