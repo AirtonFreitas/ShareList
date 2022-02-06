@@ -8,10 +8,13 @@
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".activity.MainActivity">
+        <include android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
 
 
         <ImageView
@@ -145,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="LISTAS \n PERSONALIZADAS"
+                android:text="LISTAS \n PRONTAS"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp" />

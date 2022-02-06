@@ -3,10 +3,14 @@ package com.iasoftwares.sharelist.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -31,12 +35,20 @@ public class EasyListActivity extends AppCompatActivity {
     private Button bntBack;
     private DatabaseReference toPath, fromPath;
     private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
+    private Toolbar toolbar;
+    private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_list);
         bntBack = findViewById(R.id.btnBackID);
+        toolbar = findViewById(R.id.toolbar);
+
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+
+
         bntBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +75,10 @@ public class EasyListActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isComplete()) {
-                                    Toast.makeText(EasyListActivity.this, "Lista " + fromPath.getKey() + " copiada com sucesso! ", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(EasyListActivity.this, "Lista " + fromPath.getKey() + " copiada com sucesso! ", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(EasyListActivity.this, ItemsActivity.class);
+                                    intent.putExtra("chosenList", chosenList);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(EasyListActivity.this, "Houve algum erro e não foi possível copiar a lista " + fromPath.getKey(), Toast.LENGTH_LONG).show();
                                 }
@@ -129,4 +144,94 @@ public class EasyListActivity extends AppCompatActivity {
         }
         copyList(toPath, fromPath, chosenList);
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_pages, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbarNewList:
+                NewList();
+                break;
+            case R.id.toolbarListsOld:
+                OldLists();
+                break;
+            case R.id.toolbarCustomList:
+                CustomList();
+                break;
+            case R.id.toolbarMarket:
+                GoMarket();
+                break;
+            case R.id.toolbarDonate:
+                GoDonate();
+                break;
+            case R.id.toolbarDisconnect:
+                Disconnect();
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
+    public void NewList() {
+        Intent intent = new Intent(this, RegisterItemsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void OldLists() {
+        Intent intent = new Intent(this, ListsActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void CustomList() {
+        Intent intent = new Intent(this, EasyListActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void GoMarket() {
+        Intent intent = new Intent(this, GoMarketListActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void GoDonate() {
+        Intent intent = new Intent(this, DonateActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void Disconnect() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Fazer Logout?");
+        alertDialog.setIcon(R.drawable.ic_baseline_exit_to_app);
+        alertDialog.setMessage("Você tem certeza que deseja deslogar do aplicativo?");
+        alertDialog.setCancelable(false);
+        alertDialog.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                autenticacao.signOut();
+                Intent intent = new Intent(EasyListActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                Toast.makeText(EasyListActivity.this, "Desconectado!", Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+        alertDialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog alert = alertDialog.create();
+        alert.show();
+    }
+
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/toolbarNewList"
+        android:orderInCategory="100"
+        android:title="📄 Nova lista"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarListsOld"
+        android:orderInCategory="100"
+        android:title="📃 Listas anteriores"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarCustomList"
+        android:orderInCategory="100"
+        android:title="📋 Listas prontas"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarMarket"
+        android:orderInCategory="100"
+        android:title="🛒 Ir às compras"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarDonate"
+        android:orderInCategory="100"
+        android:title="💲 Apoie o desenvolvedor"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/toolbarDisconnect"
+        android:orderInCategory="100"
+        android:title="❌ Sair"
+        app:showAsAction="never"
+        />
+</menu>

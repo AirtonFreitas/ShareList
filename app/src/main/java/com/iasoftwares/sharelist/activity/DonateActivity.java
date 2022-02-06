@@ -5,101 +5,78 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 import com.iasoftwares.sharelist.R;
 import com.iasoftwares.sharelist.config.SettingsFirebase;
 import com.iasoftwares.sharelist.helper.Base64Custom;
-import com.iasoftwares.sharelist.model.Usuario;
 
-import java.io.BufferedReader;
+public class DonateActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth autenticacao;
-    private LinearLayout squareone, squaretwo, squarethree, squarefour;
-    private DatabaseReference userLogado;
-    private DatabaseReference firebaseRef = SettingsFirebase.getFirebaseDatabase();
-    private TextView welcomeText;
+    private ImageView pix;
     private Toolbar toolbar;
+    private FirebaseAuth autenticacao = SettingsFirebase.getFirebaseAutenticacao();
+    private Button btnRate, btnBack;
+    private TextView linkLinkedin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        squareone = findViewById(R.id.square_one);
-        squaretwo = findViewById(R.id.square_two);
-        squarethree = findViewById(R.id.square_three);
-        squarefour = findViewById(R.id.square_four);
-        welcomeText = findViewById(R.id.welcomeTextID);
+        setContentView(R.layout.activity_donate);
+        pix = findViewById(R.id.imageCopyPix);
         toolbar = findViewById(R.id.toolbar);
-
+        btnRate = findViewById(R.id.btn_rate);
+        btnBack = findViewById(R.id.btnDonateBackID);
+        linkLinkedin = findViewById(R.id.linkedInLink);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
-
-
-        autenticacao = SettingsFirebase.getFirebaseAutenticacao();
-        if (autenticacao.getCurrentUser() == null) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            String emailUsuario = autenticacao.getCurrentUser().getEmail();
-            String idUsuario = Base64Custom.codificarBase64(emailUsuario);
-            userLogado = firebaseRef.child("usuarios").child(idUsuario);
-            userLogado.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Usuario nameUser = snapshot.getValue(Usuario.class);
-                    String namestr = nameUser.getNome();
-                    welcomeText.setText("Seja bem vindo, " + namestr + "!");
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-
-        squareone.setOnClickListener(new View.OnClickListener() {
+        pix.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                NewList();
+            public void onClick(View view) {
+                ClipboardManager clipboard = (ClipboardManager)
+                        getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("simple text", "6c1b2b17-5f39-494d-a683-c88e3792a1ff");
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(DonateActivity.this, "Chave Pix copiada!", Toast.LENGTH_LONG).show();
             }
         });
-        squaretwo.setOnClickListener(new View.OnClickListener() {
+        btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                OldLists();
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.sharelist")));
             }
         });
-        squarethree.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                CustomList();
+            public void onClick(View view) {
+                Intent intent = new Intent(DonateActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
-        squarefour.setOnClickListener(new View.OnClickListener() {
+        linkLinkedin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                GoMarket();
-            }
-        });
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://linkedin.com/in/airton-siqueira-85260b174")));
 
+            }
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,28 +115,33 @@ public class MainActivity extends AppCompatActivity {
     public void NewList() {
         Intent intent = new Intent(this, RegisterItemsActivity.class);
         startActivity(intent);
-
+        finish();
     }
 
     public void OldLists() {
         Intent intent = new Intent(this, ListsActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void CustomList() {
         Intent intent = new Intent(this, EasyListActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void GoMarket() {
         Intent intent = new Intent(this, GoMarketListActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void GoDonate() {
         Intent intent = new Intent(this, DonateActivity.class);
         startActivity(intent);
+        finish();
     }
+
     public void Disconnect() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Fazer Logout?");
@@ -170,10 +152,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 autenticacao.signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(DonateActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(MainActivity.this, "Desconectado!", Toast.LENGTH_LONG).show();
+                Toast.makeText(DonateActivity.this, "Desconectado!", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -185,4 +167,5 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alert = alertDialog.create();
         alert.show();
     }
+
 }
