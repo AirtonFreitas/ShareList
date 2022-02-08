@@ -59,7 +59,7 @@ public class DonateActivity extends AppCompatActivity {
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.airtonsiq.sharelist")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.iasoftwares.sharelist")));
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {

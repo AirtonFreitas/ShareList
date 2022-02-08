@@ -45,6 +45,7 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());
         holder.observacao.setText(movimentacao.getObservacao());
+        holder.unid.setText(movimentacao.getUnd());
         holder.deletarItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,11 +57,15 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
             holder.descricao.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             holder.categoria.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             holder.observacao.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.unid.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.quantidade.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             holder.checkItem.setBackgroundResource(R.drawable.ic_baseline_check_box);
         } else {
             holder.descricao.setPaintFlags(Paint.ANTI_ALIAS_FLAG);
             holder.categoria.setPaintFlags(Paint.ANTI_ALIAS_FLAG);
             holder.observacao.setPaintFlags(Paint.ANTI_ALIAS_FLAG);
+            holder.unid.setPaintFlags(Paint.ANTI_ALIAS_FLAG);
+            holder.quantidade.setPaintFlags(Paint.ANTI_ALIAS_FLAG);
             holder.checkItem.setBackgroundResource(R.drawable.ic_baseline_check_box_outline_blank);
         }
         holder.checkItem.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +75,6 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
                     onClick.desmarcaItem(pos);
                 } else {
                     onClick.marcaItem(pos);
-
                 }
             }
         });
@@ -84,7 +88,7 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView descricao, quantidade, categoria, observacao;
+        TextView descricao, quantidade, categoria, observacao, unid;
         ImageView deletarItem, checkItem;
 
 
@@ -96,6 +100,7 @@ public class AdapterItemsMarket extends RecyclerView.Adapter<AdapterItemsMarket.
             observacao = itemView.findViewById(R.id.textAdapterObservacao);
             deletarItem = itemView.findViewById(R.id.deleteID);
             checkItem = itemView.findViewById(R.id.checkedImg);
+            unid = itemView.findViewById(R.id.textAdapterUN);
         }
 
     }

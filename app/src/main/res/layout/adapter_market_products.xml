@@ -1,63 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="6dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <!--<CheckBox
-                android:id="@+id/checked"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                />-->
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/checkedImg"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="bottom|center_horizontal"
-                android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/ic_baseline_check_box_outline_blank"
-                />
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_check_box_outline_blank" />
 
 
             <TextView
                 android:id="@+id/textAdapterDescricao"
                 android:layout_width="248dp"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="5"
+                android:gravity="bottom"
                 android:paddingStart="15dp"
                 android:text="Descrição"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:gravity="bottom"/>
+                android:layout_gravity="center_vertical|right"/>
 
             <TextView
                 android:id="@+id/textAdapterQuantidade"
-                android:layout_width="80dp"
+                android:layout_width="81dp"
                 android:layout_height="48dp"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
                 android:gravity="center_horizontal|bottom"
                 android:text="123"
-                android:layout_gravity="bottom|center_horizontal"
-                android:paddingEnd="10dp"
+                android:textAlignment="textEnd"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textAdapterUN"
+                android:layout_width="46dp"
+                android:layout_height="48dp"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|bottom"
+                android:text="KG"
+                android:textAlignment="textStart"
+                android:textSize="12sp"/>
 
             <ImageView
                 android:id="@+id/deleteID"
@@ -80,21 +82,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingStart="50dp"
                 android:text="Escolha a Categoria"
-                android:textSize="14sp"
-                android:paddingStart="50dp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textAdapterObservacao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Observação"
-                android:textSize="14sp"
                 android:paddingEnd="80dp"
                 android:paddingBottom="3dp"
+                android:text="Observação"
                 android:textAlignment="textEnd"
-                />
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

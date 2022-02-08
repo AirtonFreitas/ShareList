@@ -41,6 +41,7 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.MyViewHolder
         holder.quantidade.setText(movimentacao.getQuantidade());
         holder.categoria.setText(movimentacao.getCategoria());
         holder.observacao.setText(movimentacao.getObservacao());
+        holder.unit.setText(movimentacao.getUnd());
         holder.deletarItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +63,7 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView descricao, quantidade, categoria, observacao;
+        TextView descricao, quantidade, categoria, observacao, unit;
         ImageView deletarItem, editarItem;
 
 
@@ -74,6 +75,7 @@ public class AdapterItems extends RecyclerView.Adapter<AdapterItems.MyViewHolder
             observacao = itemView.findViewById(R.id.textAdapterObservacao);
             deletarItem = itemView.findViewById(R.id.deleteID);
             editarItem = itemView.findViewById(R.id.editID);
+            unit = itemView.findViewById(R.id.textAdapterProdUN);
         }
 
     }
