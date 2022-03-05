@@ -40,4 +40,3 @@ https://play.google.com/store/apps/details?id=com.iasoftwares.sharelist
 ![screenshot-2022-03-05_11 52 45 052](https://user-images.githubusercontent.com/47503233/156888618-399bf38e-0b84-4be8-af67-9f4050102258.png)
 ![screenshot-2022-03-05_11 52 56 629](https://user-images.githubusercontent.com/47503233/156888619-96aef6bc-3d93-46a2-8504-adad6c3c875c.png)
 ![screenshot-2022-03-05_11 53 05 143](https://user-images.githubusercontent.com/47503233/156888620-6085a002-1201-40ae-8ef3-805b3242853c.png)
-![screenshot-2022-03-05_11 53 20 703](https://user-images.githubusercontent.com/47503233/156888621-039bae3c-a444-4ed6-866b-6ed71b5261e7.png)
