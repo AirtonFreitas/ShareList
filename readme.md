@@ -3,7 +3,7 @@
 
 
 
-Recursos já usados:
+Alguns dos Recursos usados:
 
 Cadastro e Login com Firebase;
 
@@ -13,7 +13,13 @@ AlertDialog para as caixas de texto;
 
 XML's customizados para botões e editText's;
 
-Spinners para seleção.
+Spinners para seleção;
+
+Float Action Button;
+
+Comunicação com API do firebase para salvar as listas online.
+
+
 
 Vídeo do app:
 https://www.youtube.com/watch?v=DIRHzO6tOQs
