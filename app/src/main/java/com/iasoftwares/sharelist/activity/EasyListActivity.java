@@ -110,34 +110,34 @@ public class EasyListActivity extends AppCompatActivity {
         String chosenList = "aaa";
         switch (tag) {
             case "0":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Básica");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Básica");
-                chosenList = "Básica";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppBásica");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppBásica");
+                chosenList = "ListaAppBásica";
                 break;
             case "1":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Gourmet");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Gourmet");
-                chosenList = "Gourmet";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppGourmet");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppGourmet");
+                chosenList = "ListaAppGourmet";
                 break;
             case "2":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Limpeza");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Limpeza");
-                chosenList = "Limpeza";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppLimpeza");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppLimpeza");
+                chosenList = "ListaAppLimpeza";
                 break;
             case "3":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Churrasco");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Churrasco");
-                chosenList = "Churrasco";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppChurrasco");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppChurrasco");
+                chosenList = "ListaAppChurrasco";
                 break;
             case "4":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Hortifruti");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Hortifruti");
-                chosenList = "Hortifruti";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppHortifruti");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppHortifruti");
+                chosenList = "ListaAppHortifruti";
                 break;
             case "5":
-                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("Vegana");
-                toPath = firebaseRef.child("Listas").child(idUsuario).child("Vegana");
-                chosenList = "Vegana";
+                fromPath = firebaseRef.child("Listas").child("YWlydGl0b0Bob3RtYWlsLmNvbS5icg==").child("ListaAppVegana");
+                toPath = firebaseRef.child("Listas").child(idUsuario).child("ListaAppVegana");
+                chosenList = "ListaAppVegana";
                 break;
             default:
                 Toast.makeText(EasyListActivity.this, "nenhum ", Toast.LENGTH_SHORT).show();

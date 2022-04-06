@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Usuario nameUser = snapshot.getValue(Usuario.class);
                     String namestr = nameUser.getNome();
-                    welcomeText.setText("Seja bem vindo, " + namestr + "!");
+                    welcomeText.setText("Olá, " + namestr + "!");
                 }
 
                 @Override
